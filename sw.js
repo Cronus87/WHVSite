@@ -1,5 +1,5 @@
 // Service Worker for Working Holiday Helper
-const CACHE_NAME = 'whv-helper-v2';
+const CACHE_NAME = 'whv-helper-v3';
 const urlsToCache = [
   '/',
   '/index.html',

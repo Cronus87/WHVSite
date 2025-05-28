@@ -517,9 +517,9 @@
             <h2>🔍 Job Search Resources</h2>
             
             <div class="tabs">
-                <button class="tab-button active" onclick="showTab('official')">Official Sources</button>
-                <button class="tab-button" onclick="showTab('community')">Backpacker Community</button>
-                <button class="tab-button" onclick="showTab('inperson')">In-Person Tips</button>
+                <button class="tab-button active" onclick="showTab('official', event)">Official Sources</button>
+                <button class="tab-button" onclick="showTab('community', event)">Backpacker Community</button>
+                <button class="tab-button" onclick="showTab('inperson', event)">In-Person Tips</button>
             </div>
 
             <div id="official" class="tab-content active">
@@ -842,7 +842,7 @@
 
     <script>
         // Tab functionality
-        function showTab(tabName) {
+        function showTab(tabName, event) {
             const tabs = document.querySelectorAll('.tab-content');
             const buttons = document.querySelectorAll('.tab-button');
             
@@ -855,7 +855,9 @@
             });
             
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
         }
 
         // Accordion functionality
@@ -902,25 +904,8 @@
             });
         });
 
-        // Simple smooth scroll for internal anchor links only
-        document.addEventListener('click', function(e) {
-            // Only process anchor clicks
-            if (e.target.tagName !== 'A') return;
-            
-            const href = e.target.getAttribute('href');
-            
-            // Skip if no href, external link, or just '#'
-            if (!href || !href.startsWith('#') || href === '#') return;
-            
-            // Try to find the target element
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
+        // Ensure external links work properly
+        // Remove any interference with link clicks
 
         // Add animation on scroll
         const observerOptions = {
