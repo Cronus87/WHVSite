@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <meta name="description" content="Your complete guide to Australia's Working Holiday Visa - everything you need for your adventure down under">
+    <title>Working Holiday Helper - Australia Visa Guide</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .hero {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+        }
+        
+        .install-prompt {
+            background: #4caf50;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .install-prompt button {
+            background: white;
+            color: #4caf50;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .quick-link {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #1976d2;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .quick-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .section-title {
+            color: #1976d2;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: #1976d2;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .icon {
+            font-size: 1.5rem;
+        }
+        
+        .badge-new {
+            background: #4caf50;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+        
+        .badge-essential {
+            background: #ff5722;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+        
+        .search-box {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .footer {
+            background: #263238;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #4fc3f7;
+        }
+        
+        @media (max-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-links {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎒 Working Holiday Helper - Australia</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="hero">
+            <h2>Your Complete Guide to Australia's Working Holiday Visa</h2>
+            <p>Everything you need to know about getting your visa, setting up in Australia, and making the most of your working holiday experience.</p>
+            
+            <div class="install-prompt" id="installPrompt">
+                <span>📱 Install this app for offline access!</span>
+                <button id="installButton">Install</button>
+            </div>
+            
+            <div class="quick-links">
+                <a href="/emergency-safety.html" class="quick-link">
+                    <div>🚨</div>
+                    <div>Emergency</div>
+                </a>
+                <a href="/checklist.html" class="quick-link">
+                    <div>✅</div>
+                    <div>Checklist</div>
+                </a>
+                <a href="/visa-guide.html" class="quick-link">
+                    <div>📋</div>
+                    <div>Visa Info</div>
+                </a>
+                <a href="/money-banking.html" class="quick-link">
+                    <div>💰</div>
+                    <div>Money</div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for guides, tips, or information...">
+        </div>
+        
+        <h2 class="section-title">📋 Before You Arrive</h2>
+        <div class="card-grid">
+            <a href="/pre-arrival.html" class="card">
+                <h3><span class="icon">✈️</span> Pre-Arrival Preparation <span class="badge-essential">Essential</span></h3>
+                <p>Complete checklist of everything you need before flying to Australia</p>
+            </a>
+            
+            <a href="/visa-guide.html" class="card">
+                <h3><span class="icon">📋</span> Visa Guide</h3>
+                <p>Eligibility, application process, conditions, and extension requirements</p>
+            </a>
+        </div>
+        
+        <h2 class="section-title">🏁 Getting Started</h2>
+        <div class="card-grid">
+            <a href="/checklist.html" class="card">
+                <h3><span class="icon">✅</span> First Week Checklist <span class="badge-essential">Essential</span></h3>
+                <p>Day-by-day guide for your first week in Australia</p>
+            </a>
+            
+            <a href="/banking.html" class="card">
+                <h3><span class="icon">🏦</span> Banking Setup</h3>
+                <p>Open an Australian bank account and manage your finances</p>
+            </a>
+            
+            <a href="/phone-sim.html" class="card">
+                <h3><span class="icon">📱</span> Phone & SIM</h3>
+                <p>Get connected with an Australian SIM card and phone plan</p>
+            </a>
+            
+            <a href="/tax-tfn.html" class="card">
+                <h3><span class="icon">🧾</span> Tax File Number</h3>
+                <p>Apply for your TFN and understand Australian tax obligations</p>
+            </a>
+        </div>
+        
+        <h2 class="section-title">💼 Work & Money</h2>
+        <div class="card-grid">
+            <a href="/work-rights.html" class="card">
+                <h3><span class="icon">⚖️</span> Work Rights & Certifications <span class="badge-new">Updated</span></h3>
+                <p>Your rights, minimum wages, and required certifications like RSA & White Card</p>
+            </a>
+            
+            <a href="/regional-work.html" class="card">
+                <h3><span class="icon">🚜</span> Regional Work</h3>
+                <p>Find farm work and qualify for your second year visa</p>
+            </a>
+            
+            <a href="/money-banking.html" class="card">
+                <h3><span class="icon">💳</span> Complete Money Guide</h3>
+                <p>Banking, budgeting, transfers, and financial tips</p>
+            </a>
+        </div>
+        
+        <h2 class="section-title">🏠 Living in Australia</h2>
+        <div class="card-grid">
+            <a href="/accommodation.html" class="card">
+                <h3><span class="icon">🏠</span> Accommodation Guide <span class="badge-new">New</span></h3>
+                <p>Finding hostels, share houses, rentals, and avoiding scams</p>
+            </a>
+            
+            <a href="/transportation.html" class="card">
+                <h3><span class="icon">🚌</span> Transportation</h3>
+                <p>Public transport, domestic flights, and driving in Australia</p>
+            </a>
+            
+            <a href="/healthcare.html" class="card">
+                <h3><span class="icon">🏥</span> Healthcare</h3>
+                <p>Medicare, insurance, doctors, and staying healthy</p>
+            </a>
+        </div>
+        
+        <h2 class="section-title">🚨 Safety & Support</h2>
+        <div class="card-grid">
+            <a href="/emergency-safety.html" class="card">
+                <h3><span class="icon">🚨</span> Emergency & Safety <span class="badge-essential">Essential</span></h3>
+                <p>Emergency contacts, natural disasters, beach safety, and staying safe</p>
+            </a>
+            
+            <a href="/departure.html" class="card">
+                <h3><span class="icon">✈️</span> Departure Checklist</h3>
+                <p>Claiming super, tax returns, and leaving Australia properly</p>
+            </a>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>Working Holiday Helper - Your companion for Australian adventures</p>
+            <p><small>Not affiliated with Australian Government. Always check official sources.</small></p>
+            <p><small><a href="https://immi.homeaffairs.gov.au" target="_blank">Official Immigration Website</a></small></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show/hide section titles based on visible cards
+            document.querySelectorAll('.section-title').forEach(title => {
+                const section = title.nextElementSibling;
+                const visibleCards = section.querySelectorAll('.card[style="display: block;"], .card:not([style])');
+                title.style.display = visibleCards.length > 0 ? 'block' : 'none';
+            });
+        });
+        
+        // PWA Install prompt
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+        const installButton = document.getElementById('installButton');
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installPrompt.style.display = 'flex';
+        });
+        
+        installButton.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                }
+                deferredPrompt = null;
+                installPrompt.style.display = 'none';
+            }
+        });
+        
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(registration => {
+                console.log('ServiceWorker registered');
+            }).catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

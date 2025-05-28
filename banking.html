@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Opening an Australian Bank Account - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s;
+        }
+        
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            flex: 1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: #1976d2;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e3f2fd;
+        }
+        
+        h3 {
+            color: #1565c0;
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            color: #0d47a1;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: #f5f5f5;
+            font-weight: 600;
+            color: #1976d2;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .checklist {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist h4 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checklist li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+        
+        .checklist li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 1.25rem;
+        }
+        
+        .section-nav {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-nav h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .section-nav a {
+            color: #1976d2;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .section-nav a:hover {
+            color: #1565c0;
+            padding-left: 0.5rem;
+            transition: padding 0.2s;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        strong {
+            color: #0d47a1;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .meta-info {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.25rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/index.html" class="back-button">
+                <span>←</span> Back
+            </a>
+            <h1>Opening an Australian Bank Account</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section-nav">
+            <h3>Quick Navigation</h3>
+            <a href="#documents">Documents & Details to Bring</a>
+            <a href="#process">Step-by-Step Process</a>
+            <a href="#fees">Plan & Fee Checklist</a>
+            <a href="#faq">Fast FAQ</a>
+            <a href="#next-steps">After the Branch Visit</a>
+        </div>
+        
+        <div class="content-card">
+            <h2>Quick Guide – Opening an Australian Bank Account</h2>
+            <p class="meta-info">Last updated 27 May 2025</p>
+        </div>
+        
+        <div class="content-card" id="documents">
+            <h2>1. Documents & Details to Bring</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>📄 Item</th>
+                        <th>Why Needed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Passport</strong> (photo page)</td>
+                        <td>Mandatory primary ID for 100-point check</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Australian address</strong> (hostel booking / friend's place)</td>
+                        <td>For mailing debit card & proof-of-address field</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Visa grant notice</strong> (print or PDF)</td>
+                        <td>Confirms legal status if teller asks</td>
+                    </tr>
+                    <tr>
+                        <td>Local <strong>mobile number</strong> (or email)</td>
+                        <td>SMS verification & online-bank setup</td>
+                    </tr>
+                    <tr>
+                        <td>Initial <strong>deposit</strong> (cash or card, optional)</td>
+                        <td>Activate account instantly & avoid ATM fee to deposit later</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="tip-box">
+                <strong>Tip</strong> – No utility bill yet? Most banks accept your hostel address + booking email as temporary proof. Update later when you move.
+            </div>
+        </div>
+        
+        <div class="content-card" id="process">
+            <h2>2. Step-by-Step Process</h2>
+            
+            <ol>
+                <li><strong>Choose a bank</strong><br>
+                    <em>Big-4 = Commonwealth Bank (CBA), Westpac, NAB, ANZ.</em> All have wide ATM networks and online "Open Before You Arrive" forms.</li>
+                <li><strong>Pre-open online (optional)</strong><br>
+                    Complete the bank's migrant form up to 12 months before arrival – you'll get an application reference.</li>
+                <li><strong>Visit any branch</strong> with passport within 30 days of landing. Take reference (if pre-opened) or walk-in as new customer.</li>
+                <li><strong>Verify identity</strong> – teller scans passport, asks address & visa class. 100-point ID passed, account activated.</li>
+                <li><strong>Receive account details</strong> (BSB + Account No.) instantly; debit card arrives at address in ~5 days.</li>
+                <li><strong>Register online/mobile banking</strong> while still in branch (staff can help). Set 4-digit PIN for card.</li>
+                <li><strong>Deposit cash</strong> or transfer funds to avoid dormant-fee flags.</li>
+            </ol>
+        </div>
+        
+        <div class="content-card" id="fees">
+            <h2>3. Plan & Fee Checklist</h2>
+            
+            <ul>
+                <li>Everyday transaction accounts are <strong>fee-free</strong> for 12 months for new migrants/backpackers (check promo).</li>
+                <li><strong>ATM withdrawals</strong> at your bank's machines = free; ≈ $2 fee at others. Telstra/Optus recharge available in app.</li>
+                <li>Overdrafts disabled by default – avoid accidental negative balance fees.</li>
+                <li>Ask to <strong>link a savings account</strong> (e.g. NetBank Saver) to earn interest once you start saving.</li>
+                <li>Enable <strong>Apple Pay / Google Wallet</strong> in-app – almost all shops use tap-and-go.</li>
+            </ul>
+        </div>
+        
+        <div class="content-card" id="faq">
+            <h2>4. Fast FAQ</h2>
+            
+            <ul>
+                <li><strong>Can I open without a TFN yet?</strong> Yes. Give it to the bank later to avoid withholding tax on interest.</li>
+                <li><strong>Do I need an appointment?</strong> Not usually – walk-ins accepted, but book online if you prefer shorter wait.</li>
+                <li><strong>Which bank is best?</strong> CBA has the largest branch network; Westpac partners with selected ATMs globally; NAB offers no monthly-fee account even after promo; ANZ has strong app UX. Pick whichever has a branch near your hostel.</li>
+                <li><strong>Changing address?</strong> Update in the app or at any branch – required within 14 days of moving.</li>
+            </ul>
+        </div>
+        
+        <div class="content-card" id="next-steps">
+            <h2>5. After the Branch Visit – Next Moves</h2>
+            
+            <ol>
+                <li><strong>Add TFN</strong> to your online banking profile once you receive it.</li>
+                <li><strong>Set up PayID</strong> (link mobile/email) for instant transfers.</li>
+                <li>Keep a photo of <strong>BSB / Account No.</strong> – employers need it on day-one paperwork.</li>
+                <li>If long-term, consider a <strong>travel card</strong> or <strong>Wise</strong> for low-fee international transfers back home.</li>
+            </ol>
+            
+            <div class="highlight-box">
+                <p><strong>Your Aussie bank account is now ready – time to get paid!</strong></p>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Service Worker registration for offline functionality
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                console.log('ServiceWorker registered');
+            }).catch(function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.section-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

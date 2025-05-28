@@ -1,0 +1,107 @@
+# SIM & Phone Setup Guide for Working‑Holiday Makers (Australia)
+
+*Last updated 27 May 2025*
+
+---
+
+## Quick‑Glance: What to Bring
+
+| ⚙️ Task                                                                                  | 📄 Mandatory ID & Info                                                              | ✅ Why |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **Buy physical SIM at airport / store**                                                  | • **Passport** (any nationality)【turn4search2†L1-L4】【turn3search7†L1-L3】            |       |
+| • **Australian address** (hostel, hotel or friend; can be temporary)【turn4search2†L4-L7】 | Telstra, Optus, Vodafone must verify identity under federal law【turn0search3†L1-L6】 |       |
+| **Activate online / via app**                                                            | • Passport *or* foreign driver licence scan                                         |       |
+| • Live selfie (Vodafone Remote‑ID)【turn0search2†L1-L4】                                   | Remote activation needs photo‑match to prevent fraud                                |       |
+| **Buy eSIM before landing**                                                              | • Passport photo upload on provider site (BNESIM/Airalo)                            |       |
+| • Payment card                                                                           | Compliance + payment; can skip Aussie address for tourist eSIM【turn0search4†L1-L3】  |       |
+| **Open post‑paid plan (rare for WHV)**                                                   | • Passport + proof of Aussie address (utility bill/bank stmt)                       |       |
+| • Aussie bank/credit card                                                                | Post‑paid requires credit check & local payment instrument                          |       |
+
+> **Tip:** Keep your **visa grant notice & hostel booking email** on your phone; some staff accept these as proof of address if you’ve just landed.
+
+---
+
+## 1  Why ID Is Required
+
+Australian telcos must validate every prepaid service under the **Telecommunications (Service Provider — Identity Checks for Prepaid Mobile) Determination 2017**【turn1search0†L1-L6】. This anti‑fraud rule means **no anonymous SIMs**—expect an ID check in store or online.
+
+**Acceptable ID (Telstra example):** one primary photo ID (passport) *or* two secondary IDs (e.g. Medicare card + credit card)【turn0search0†L1-L9】【turn0search0†L9-L17】. Visitors almost always use a passport.
+
+---
+
+## 2  Buying a SIM on Arrival
+
+### 2.1 Airport Kiosks & Vending Machines
+
+* All major airports (SYD, MEL, BNE, PER) host **Telstra, Optus, Vodafone** kiosks or vending machines after customs【turn0search5†L1-L7】.
+* Starter packs cost **AUD \$2–\$10**; plans load after you top‑up or choose a bundle online【turn0search5†L7-L10】.
+
+**Steps:**
+
+1. Present passport; staff scan photo page.  2. Provide hostel/hotel address.  3. Choose pack (data allowance).  4. Staff insert SIM & activate, or give leaflet with activation URL.
+
+> 🕑 *Allow 15‑30 min if activation needs you to complete online form over airport Wi‑Fi*【turn0search5†L9-L10】.
+
+### 2.2 City Stores & Supermarkets
+
+* You can also buy Telstra/Optus/Vodafone starter packs at **Coles, Woolworths, 7‑Eleven** and activate yourself online—passport & address still required.
+* Some MVNOs (Boost, Amaysim, Felix) sell packs online; delivery requires Australian shipping address.
+
+---
+
+## 3  eSIM Before You Fly (Optional)
+
+* Providers like **BNESIM, Airalo, Holafly** sell Australian eSIMs that roam on Optus/Telstra; purchase with passport scan + credit card, receive QR code instantly【turn0search4†L1-L3】.
+* Pros: phone online as soon as you land; can still switch to local physical SIM later.
+* Cons: slightly higher cost per GB; no Aussie phone number for job calls.
+
+---
+
+## 4  Choosing a Network
+
+| Network                           | Coverage                         | Good For                     | Notes                                                               |
+| --------------------------------- | -------------------------------- | ---------------------------- | ------------------------------------------------------------------- |
+| **Telstra**                       | Widest, esp. outback             | Remote farm work, road‑trips | Plans start \$10 for 7 days; 5G on higher tiers【turn4search1†L5-L8】 |
+| **Optus**                         | Strong metro + regional          | City + east‑coast travel     | Traveller SIM with int’l calls to 15 countries【turn3search1†L1-L3】  |
+| **Vodafone**                      | Metro‑centric                    | Budget & city stay           | Remote‑ID selfie activation required【turn0search2†L1-L4】            |
+| **MVNOs (Boost, Amaysim, Felix)** | Varies (Telstra/Optus wholesale) | Cheaper long‑term            | Often need Aussie credit card for top‑ups【turn4search0†L1-L4】       |
+
+---
+
+## 5  Activation Walk‑Through (Telstra Example)
+
+1. Insert SIM (or scan eSIM QR).
+2. Connect to **wifi.telstra.com** captive portal.
+3. Enter SIM serial, choose plan.
+4. Upload passport photo + type name & address.
+5. Receive SMS confirming activation within 5–10 min.
+
+Optus & Vodafone portals follow the same flow【turn0search1†L1-L2】【turn0search2†L1-L4】.
+
+---
+
+## 6  Troubleshooting & Tips
+
+* **Phone must be unlocked**; verify with home carrier before flying【turn4search6†L1-L4】.
+* Keep your **SIM packaging**—it shows SIM/ICC number needed for recharge or port‑out.
+* **Top‑up apps:** MyTelstra, My Optus, MyVodafone let you add credit via international bank cards (Visa/Mastercard).
+* **Lost passport?** Telcos accept some secondary IDs but a replacement passport is simplest—contact your embassy.
+* For extra security, create **Digital ID (Optus + Mastercard)** so future recharges need only selfie + stored passport hash【turn3search5†L1-L5】.
+* When leaving Australia, you can **keep your number** by porting to a \$2 Telstra or Optus long‑life plan online.
+
+---
+
+## 7  Document Checklist (Print / Save Offline)
+
+* ✅ Passport (photo page)
+* ✅ Australian address (hostel booking, friend’s place, or Airbnb)
+* ✅ Visa grant email (optional backup ID)
+* ✅ Credit/debit card for top‑up
+* ✅ Unlocked phone or eSIM‑capable handset
+* 🔒 Keep a digital copy of passport & visa in cloud storage as backup.
+
+> Pack these items in carry‑on so you can buy and activate your SIM **before leaving the airport**.
+
+---
+
+*Sources:* ACMA prepaid‑ID guidelines【turn0search3†L1-L6】, Telstra ID list【turn0search0†L1-L9】, Optus activation page【turn0search1†L1-L2】, Vodafone remote‑ID info【turn0search2†L1-L4】, 2025 prepaid‑plan comparison【turn0news96†L1-L9】, eSIM providers list【turn0search4†L1-L3】, airport SIM buying guide【turn0search5†L1-L7】, visitor SIM advice sites【turn4search1†L1-L4】【turn4search2†L1-L4】【turn4search6†L1-L4】.

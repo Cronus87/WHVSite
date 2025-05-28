@@ -1,0 +1,73 @@
+# Quick Guide – Getting Your Tax File Number (TFN)
+
+*Last updated 27 May 2025*
+
+---
+
+## 1  Why You Need a TFN
+
+* Identifies you to the Australian Taxation Office (ATO).
+* Without it, employers withhold tax at **45 %**.
+* Required to open superannuation, lodge tax return, and earn bank interest without extra tax.
+
+---
+
+## 2  What to Prepare
+
+| 📄 Item                         | Notes                                    |
+| ------------------------------- | ---------------------------------------- |
+| **Passport**                    | Must match visa details                  |
+| **Australian address**          | Hostel / friend – TFN letter posted here |
+| **Mobile number & email**       | For ATO confirmation & myGov link        |
+| **Working-Holiday visa number** | Found on grant notice                    |
+
+> *Tip – You cannot apply before entering Australia; online form checks arrival against immigration database.*
+
+---
+
+## 3  Online Application Steps (10 min)
+
+1. Go to **ato.gov.au/TFNapply** → select “Foreign passport holder” form.
+2. Enter visa subclass (417 or 462) when prompted.
+3. Fill identity details exactly as in passport.
+4. Enter current Australian address & contact details.
+5. Submit – you’ll receive **application receipt number**.
+6. TFN issued within **5–15 days** by post (city) or up to 3 weeks (regional). Email/SMS confirms dispatch.
+
+---
+
+## 4  While Waiting
+
+* You **can start work** – give employer “TFN pending” + receipt number. They may withhold at higher rate until TFN provided.
+* Check hostel front-desk mail box daily; TFN letter is thin A4 envelope from “Australian Taxation Office”.
+
+---
+
+## 5  After You Receive TFN
+
+1. **Record it securely** – add to Secure Wallet in the app; do **not** share publicly.
+2. Provide TFN to employer via **Tax File Number Declaration** form – HR will lodge to ATO.
+3. Add TFN to bank profile (internet banking → settings). Avoid 45 % withholding tax on interest.
+4. Keep TFN for life – even if you leave Australia, same number applies on return.
+
+---
+
+## 6  Common Questions
+
+* **Cost?** Free.
+* **Lost the letter?** Create/Link **myGov → ATO** to view TFN online.
+* **Changing address?** Update via myGov or call ATO (13 28 61).
+* **Leaving Australia early?** No need to cancel TFN; keep it for tax return & super refund.
+
+---
+
+## 7  Mini Checklist
+
+* ✅ Passport & visa handy.
+* ✅ Australian address confirmed.
+* ✅ Completed TFNonline form.
+* ✅ Saved receipt number.
+* ✅ TFN letter collected & stored.
+* ✅ TFN supplied to employer + bank.
+
+You’re now tax-ready – enjoy earning Aussie dollars without extra tax!

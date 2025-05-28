@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Departure Checklist - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 {
+            color: #1565c0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #1976d2;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 1rem 0;
+            border-left: 2px solid transparent;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1976d2;
+            border: 2px solid white;
+            box-shadow: 0 0 0 4px #e3f2fd;
+        }
+        
+        .timeline-item h4 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-item.urgent h4 {
+            color: #dc3545;
+        }
+        
+        .timeline-item.urgent:before {
+            background: #dc3545;
+            box-shadow: 0 0 0 4px #f8d7da;
+        }
+        
+        .money-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .money-box h3 {
+            color: #155724;
+            margin-top: 0;
+        }
+        
+        .money-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+            margin: 0.5rem 0;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.75rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .checklist li:hover {
+            background: #e3f2fd;
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0.5rem;
+            color: #1976d2;
+            font-size: 1.5rem;
+        }
+        
+        .checklist li.done {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+        
+        .checklist li.done:before {
+            content: "☑";
+            color: #28a745;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .contact-card {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+        }
+        
+        .contact-card h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .next-steps {
+            background: #f8f9fa;
+            border: 2px dashed #6c757d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .next-steps h3 {
+            color: #495057;
+            margin-top: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .checklist li {
+                font-size: 0.9rem;
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>Departure Checklist</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section">
+            <h2>✈️ Leaving Australia - Complete Guide</h2>
+            
+            <p>Whether your visa is expiring or you're heading home early, proper departure planning ensures you get all your money back and leave on good terms for potential future visits.</p>
+            
+            <div class="money-box">
+                <h3>💰 Average Money to Claim Back</h3>
+                <div class="money-amount">$3,000 - $5,000</div>
+                <p>Superannuation + Tax Return + Bond + Final Pay</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📅 Departure Timeline</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>6 Weeks Before</h4>
+                    <ul>
+                        <li>Give notice at work (check contract)</li>
+                        <li>Give rental notice (usually 2-4 weeks)</li>
+                        <li>Start selling large items</li>
+                        <li>Book flights (flexible if possible)</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>4 Weeks Before</h4>
+                    <ul>
+                        <li>Apply for tax file number declaration from employer</li>
+                        <li>List car/van for sale if applicable</li>
+                        <li>Cancel gym memberships and subscriptions</li>
+                        <li>Start using up frozen/pantry food</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>2 Weeks Before</h4>
+                    <ul>
+                        <li>Finalize accommodation checkout date</li>
+                        <li>Deep clean rental for bond return</li>
+                        <li>Gather all payslips and tax documents</li>
+                        <li>Change address with banks to permanent one</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item urgent">
+                    <h4>1 Week Before</h4>
+                    <ul>
+                        <li>Close utility accounts</li>
+                        <li>Final rental inspection</li>
+                        <li>Collect final payslip</li>
+                        <li>Return any borrowed items</li>
+                        <li>Say goodbyes and exchange contacts</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item urgent">
+                    <h4>Departure Day</h4>
+                    <ul>
+                        <li>Return rental keys</li>
+                        <li>Close bank account or convert to non-resident</li>
+                        <li>Final accommodation checkout</li>
+                        <li>Arrive at airport 3 hours early (international)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💸 Financial Checklist</h2>
+            
+            <div class="checklist">
+                <h3>Before Leaving</h3>
+                <ul>
+                    <li>Collect final pay from all employers</li>
+                    <li>Get PAYG payment summary (group certificate)</li>
+                    <li>Note superannuation fund details and balance</li>
+                    <li>Photograph all financial documents</li>
+                    <li>Set up international transfer method</li>
+                    <li>Update bank to correspondence address</li>
+                    <li>Cancel any Australian subscriptions</li>
+                    <li>Clear any debts or fines</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>After Leaving</h3>
+                <ul>
+                    <li>Lodge tax return (July 1 - Oct 31)</li>
+                    <li>Apply for superannuation release (DASP)</li>
+                    <li>Follow up on rental bond return</li>
+                    <li>Close Australian bank account</li>
+                    <li>Cancel Australian phone number</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏦 Superannuation Claim (DASP)</h2>
+            
+            <h3>Departing Australia Superannuation Payment</h3>
+            <p>You can claim your super after leaving if:</p>
+            <ul>
+                <li>Your visa has expired/ceased</li>
+                <li>You've left Australia</li>
+                <li>You're not an Australian/NZ citizen</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>⚠️ Tax on Super:</strong>
+                <ul>
+                    <li>Working Holiday Makers: 65% tax rate</li>
+                    <li>Other temporary residents: 45% tax rate</li>
+                    <li>Average claim: $2,000-4,000 (after tax)</li>
+                </ul>
+            </div>
+            
+            <h3>How to Claim</h3>
+            <ol>
+                <li>Wait until visa expires AND you've left Australia</li>
+                <li>Apply online via ATO website</li>
+                <li>Need: Passport, visa details, super fund info</li>
+                <li>Processing time: 2-4 weeks</li>
+                <li>Money sent to international bank account</li>
+            </ol>
+            
+            <div class="tip">
+                <strong>💡 Pro Tip:</strong> If you don't claim within 6 months of leaving, your super goes to ATO as "unclaimed money" - you can still get it but takes longer.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Tax Return Process</h2>
+            
+            <h3>Who Must Lodge</h3>
+            <ul>
+                <li>Everyone who worked in Australia</li>
+                <li>Even if leaving before June 30</li>
+                <li>Deadline: October 31 (following tax year)</li>
+            </ul>
+            
+            <h3>What You Need</h3>
+            <div class="checklist">
+                <ul>
+                    <li>PAYG summaries from all employers</li>
+                    <li>Bank interest statements</li>
+                    <li>Receipt for work-related expenses</li>
+                    <li>Private health insurance statement</li>
+                    <li>myGov account access</li>
+                </ul>
+            </div>
+            
+            <h3>Expected Refund</h3>
+            <ul>
+                <li><strong>Worked full year:</strong> $500-2,000 typical</li>
+                <li><strong>Worked part year:</strong> $200-800 typical</li>
+                <li><strong>Processing time:</strong> 2-12 weeks</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>💡 Options:</strong>
+                <ul>
+                    <li>Lodge yourself via myGov (free)</li>
+                    <li>Use tax agent (costs $50-150)</li>
+                    <li>Backpacker tax services (avoid high fees)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏠 Accommodation & Bonds</h2>
+            
+            <div class="checklist">
+                <h3>Getting Your Bond Back</h3>
+                <ul>
+                    <li>Give proper notice period</li>
+                    <li>Deep clean everything</li>
+                    <li>Repair any damage you caused</li>
+                    <li>Take photos of clean property</li>
+                    <li>Attend final inspection</li>
+                    <li>Get bond form signed</li>
+                    <li>Lodge with RTA/equivalent</li>
+                    <li>Money returned in 2-3 weeks</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Common Bond Deductions:</strong>
+                <ul>
+                    <li>Cleaning fees: $150-300</li>
+                    <li>Carpet cleaning: $100-200</li>
+                    <li>Damage repairs: Varies</li>
+                    <li>Missing items: Full replacement cost</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📞 Cancellations & Accounts</h2>
+            
+            <div class="checklist">
+                <h3>Services to Cancel</h3>
+                <ul>
+                    <li>Mobile phone plan</li>
+                    <li>Internet service</li>
+                    <li>Electricity & gas</li>
+                    <li>Gym membership</li>
+                    <li>Insurance policies</li>
+                    <li>Streaming services</li>
+                    <li>Public transport cards</li>
+                    <li>Store loyalty cards</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Accounts to Update</h3>
+                <ul>
+                    <li>Bank - change to non-resident</li>
+                    <li>myGov - update contact details</li>
+                    <li>ATO - correspondence address</li>
+                    <li>Employer - forwarding address</li>
+                    <li>Super fund - contact details</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚗 Selling Vehicle</h2>
+            
+            <h3>Preparation (2-4 weeks needed)</h3>
+            <ul>
+                <li>Get roadworthy certificate if required</li>
+                <li>Service records and clean car</li>
+                <li>List on Gumtree, Facebook, CarSales</li>
+                <li>Price competitively for quick sale</li>
+            </ul>
+            
+            <h3>Sale Process</h3>
+            <ol>
+                <li>Buyer inspects and test drives</li>
+                <li>Negotiate price</li>
+                <li>Fill out transfer papers together</li>
+                <li>Submit to transport authority</li>
+                <li>Cancel insurance immediately</li>
+                <li>Keep proof of sale</li>
+            </ol>
+            
+            <div class="warning">
+                <strong>⚠️ Important:</strong> You remain liable for fines until transfer is lodged. Do it immediately after sale!
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Important Contacts</h2>
+            
+            <div class="contact-card">
+                <h4>Australian Taxation Office (ATO)</h4>
+                <p><strong>From overseas:</strong> +61 2 6216 1111</p>
+                <p><strong>Website:</strong> ato.gov.au</p>
+                <p>For tax returns and superannuation</p>
+            </div>
+            
+            <div class="contact-card">
+                <h4>Services Australia</h4>
+                <p><strong>From overseas:</strong> +61 3 6222 3455</p>
+                <p>For Medicare and Centrelink matters</p>
+            </div>
+            
+            <div class="contact-card">
+                <h4>Fair Work Ombudsman</h4>
+                <p><strong>Phone:</strong> 13 13 94</p>
+                <p>For unpaid wages or workplace issues</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 Post-Departure Actions</h2>
+            
+            <div class="next-steps">
+                <h3>Within 1 Month</h3>
+                <ul>
+                    <li>Apply for DASP (super refund)</li>
+                    <li>Follow up on bond return</li>
+                    <li>Check final bills are paid</li>
+                    <li>Update LinkedIn with Australian experience</li>
+                </ul>
+                
+                <h3>July-October</h3>
+                <ul>
+                    <li>Lodge tax return when available</li>
+                    <li>Claim work-related deductions</li>
+                    <li>Provide bank details for refund</li>
+                </ul>
+                
+                <h3>Future Visits</h3>
+                <ul>
+                    <li>Keep Australian bank account active</li>
+                    <li>Maintain myGov access</li>
+                    <li>Save tax file number</li>
+                    <li>Consider visitor visa options</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💡 Final Tips</h2>
+            
+            <div class="tip">
+                <strong>Document Everything:</strong>
+                <ul>
+                    <li>Scan all important documents</li>
+                    <li>Email yourself copies</li>
+                    <li>Keep for 5 years (tax purposes)</li>
+                    <li>Take photos of accommodation condition</li>
+                </ul>
+            </div>
+            
+            <div class="tip">
+                <strong>Stay Connected:</strong>
+                <ul>
+                    <li>Keep Australian phone number active briefly</li>
+                    <li>Use email for important accounts</li>
+                    <li>Join "Australians in [Country]" Facebook groups</li>
+                    <li>Maintain friendships made</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Make checklist items clickable and persistent
+        document.querySelectorAll('.checklist li').forEach(item => {
+            // Check if item was previously marked as done
+            const itemText = item.textContent;
+            const isDone = localStorage.getItem('departure-' + itemText) === 'done';
+            if (isDone) {
+                item.classList.add('done');
+            }
+            
+            item.addEventListener('click', function() {
+                this.classList.toggle('done');
+                const key = 'departure-' + this.textContent;
+                if (this.classList.contains('done')) {
+                    localStorage.setItem(key, 'done');
+                } else {
+                    localStorage.removeItem(key);
+                }
+            });
+        });
+        
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>

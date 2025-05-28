@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Healthcare Guide - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 {
+            color: #1565c0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .medicare-card {
+            background: #4caf50;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .medicare-card h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .country-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .healthcare-option {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .healthcare-option h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-breakdown {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .cost-breakdown h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .service-table th,
+        .service-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .service-table th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .pharmacy-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .emergency-box {
+            background: #dc3545;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .emergency-box h3 {
+            color: white;
+            margin: 0.5rem 0;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            color: #1976d2;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 600px) {
+            .service-table {
+                font-size: 0.9rem;
+            }
+            
+            .service-table th,
+            .service-table td {
+                padding: 0.5rem;
+            }
+            
+            .country-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>Healthcare Guide</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section">
+            <h2>🏥 Australian Healthcare System</h2>
+            
+            <p>Australia has excellent healthcare, but it's expensive without insurance or Medicare access. Understanding your options is crucial.</p>
+            
+            <div class="emergency-box">
+                <h3>🚨 Emergency: 000</h3>
+                <p>Free emergency treatment at public hospitals for everyone</p>
+                <p>You may be billed later for non-emergency treatment</p>
+            </div>
+            
+            <h3>Healthcare Options Overview</h3>
+            <ul>
+                <li><strong>Medicare (RHCA countries):</strong> Free/subsidized healthcare</li>
+                <li><strong>Private Health Insurance:</strong> Required for non-RHCA countries</li>
+                <li><strong>Travel Insurance:</strong> Covers emergencies and accidents</li>
+                <li><strong>Out-of-pocket:</strong> Very expensive, not recommended</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🏥 Medicare for RHCA Countries</h2>
+            
+            <div class="medicare-card">
+                <h3>Reciprocal Health Care Agreement (RHCA)</h3>
+                <p>Citizens of these countries get FREE Medicare access!</p>
+            </div>
+            
+            <div class="country-list">
+                <div>🇬🇧 United Kingdom</div>
+                <div>🇮🇪 Ireland</div>
+                <div>🇳🇿 New Zealand</div>
+                <div>🇸🇪 Sweden</div>
+                <div>🇳🇱 Netherlands</div>
+                <div>🇫🇮 Finland</div>
+                <div>🇧🇪 Belgium</div>
+                <div>🇳🇴 Norway</div>
+                <div>🇸🇮 Slovenia</div>
+                <div>🇲🇹 Malta</div>
+                <div>🇮🇹 Italy</div>
+            </div>
+            
+            <h3>How to Enroll in Medicare</h3>
+            <div class="checklist">
+                <ul>
+                    <li>Visit a Services Australia office</li>
+                    <li>Bring passport with entry stamp</li>
+                    <li>Complete enrollment form</li>
+                    <li>Receive temporary card immediately</li>
+                    <li>Physical card arrives in 2-3 weeks</li>
+                </ul>
+            </div>
+            
+            <div class="tip">
+                <strong>💡 What Medicare Covers:</strong>
+                <ul>
+                    <li>GP visits (bulk-billed = free)</li>
+                    <li>Emergency hospital treatment</li>
+                    <li>Some specialist appointments</li>
+                    <li>X-rays and blood tests</li>
+                    <li>Limited dental through public system</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Medicare Doesn't Cover:</strong>
+                <ul>
+                    <li>Ambulance (except QLD/TAS)</li>
+                    <li>Dental (except emergencies)</li>
+                    <li>Optical/glasses</li>
+                    <li>Physiotherapy</li>
+                    <li>Private hospital</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏥 Health Insurance (Non-RHCA Countries)</h2>
+            
+            <div class="warning">
+                <strong>⚠️ Mandatory:</strong> Working Holiday Makers from non-RHCA countries MUST have health insurance!
+            </div>
+            
+            <div class="healthcare-option">
+                <h4>Overseas Visitor Health Cover (OVHC)</h4>
+                <p><strong>Cost:</strong> $50-150/month</p>
+                <p><strong>Covers:</strong> Hospital, some GP visits, emergencies</p>
+                <p><strong>Providers:</strong> Bupa, Medibank, NIB, Allianz</p>
+                <p><strong>Waiting periods:</strong> Pre-existing conditions 12 months</p>
+            </div>
+            
+            <div class="healthcare-option">
+                <h4>Travel Insurance</h4>
+                <p><strong>Cost:</strong> $60-120/month</p>
+                <p><strong>Covers:</strong> Emergencies, accidents, repatriation</p>
+                <p><strong>Better for:</strong> Short stays, adventure activities</p>
+                <p><strong>Note:</strong> May not cover work injuries</p>
+            </div>
+            
+            <h3>Comparing Insurance Options</h3>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Coverage</th>
+                        <th>OVHC</th>
+                        <th>Travel Insurance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hospital stays</td>
+                        <td>✓ Full</td>
+                        <td>✓ Emergency only</td>
+                    </tr>
+                    <tr>
+                        <td>GP visits</td>
+                        <td>✓ Partial</td>
+                        <td>✗ Usually not</td>
+                    </tr>
+                    <tr>
+                        <td>Work injuries</td>
+                        <td>✓ Yes</td>
+                        <td>? Check policy</td>
+                    </tr>
+                    <tr>
+                        <td>Pre-existing</td>
+                        <td>✓ After waiting</td>
+                        <td>✗ Usually not</td>
+                    </tr>
+                    <tr>
+                        <td>Repatriation</td>
+                        <td>✗ No</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>💊 Pharmacies & Medications</h2>
+            
+            <div class="pharmacy-info">
+                <h4>Finding a Pharmacy</h4>
+                <p>Look for green cross sign or "Chemist"</p>
+                <ul>
+                    <li><strong>Chemist Warehouse:</strong> Cheapest prices</li>
+                    <li><strong>Priceline:</strong> Good range, beauty products</li>
+                    <li><strong>Terry White:</strong> Professional service</li>
+                    <li><strong>Amcal:</strong> Widespread locations</li>
+                </ul>
+            </div>
+            
+            <h3>Common Medications</h3>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Generic Name</th>
+                        <th>Australian Brand</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paracetamol</td>
+                        <td>Panadol</td>
+                        <td>$3-8</td>
+                    </tr>
+                    <tr>
+                        <td>Ibuprofen</td>
+                        <td>Nurofen</td>
+                        <td>$4-10</td>
+                    </tr>
+                    <tr>
+                        <td>Antihistamine</td>
+                        <td>Telfast, Zyrtec</td>
+                        <td>$10-20</td>
+                    </tr>
+                    <tr>
+                        <td>Cold & Flu</td>
+                        <td>Codral</td>
+                        <td>$12-18</td>
+                    </tr>
+                    <tr>
+                        <td>Sunscreen 50+</td>
+                        <td>Cancer Council</td>
+                        <td>$8-15</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="warning">
+                <strong>⚠️ Prescription Medications:</strong>
+                <ul>
+                    <li>Need Australian doctor's prescription</li>
+                    <li>Bring letter from home doctor</li>
+                    <li>Some medications restricted/different names</li>
+                    <li>Antibiotics ALWAYS need prescription</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>👨‍⚕️ Seeing a Doctor (GP)</h2>
+            
+            <h3>Finding a GP</h3>
+            <ul>
+                <li><strong>Bulk-billing clinics:</strong> Free with Medicare</li>
+                <li><strong>Private clinics:</strong> $70-100, claim back ~$40</li>
+                <li><strong>Walk-in clinics:</strong> No appointment needed</li>
+                <li><strong>Telehealth:</strong> Phone/video consultations</li>
+            </ul>
+            
+            <div class="cost-breakdown">
+                <h4>Typical Costs Without Medicare/Insurance</h4>
+                <ul>
+                    <li>Standard GP visit: $70-100</li>
+                    <li>After-hours GP: $150-250</li>
+                    <li>Home visit: $200-400</li>
+                    <li>Specialist: $200-500</li>
+                    <li>Emergency dept: $500-1000+</li>
+                </ul>
+            </div>
+            
+            <div class="tip">
+                <strong>💡 Finding Bulk-Billing Doctors:</strong>
+                <ul>
+                    <li>Search "bulk billing doctor near me"</li>
+                    <li>Call ahead to confirm they bulk bill</li>
+                    <li>HotDoc app shows bulk billing clinics</li>
+                    <li>Medical centres more likely than private practices</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🦷 Dental Care</h2>
+            
+            <div class="warning">
+                <strong>⚠️ Very Expensive!</strong> Dental is NOT covered by Medicare. A basic check-up costs $200-300.
+            </div>
+            
+            <h3>Cheaper Options</h3>
+            <ul>
+                <li><strong>Dental schools:</strong> 50% cheaper, longer appointments</li>
+                <li><strong>Public dental:</strong> Long waits, emergencies only</li>
+                <li><strong>Payment plans:</strong> AfterPay, ZipPay available</li>
+                <li><strong>Dental tourism:</strong> Many go to Thailand/Bali</li>
+            </ul>
+            
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Cost Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Check-up & clean</td>
+                        <td>$200-350</td>
+                    </tr>
+                    <tr>
+                        <td>Filling</td>
+                        <td>$150-400</td>
+                    </tr>
+                    <tr>
+                        <td>Extraction</td>
+                        <td>$200-500</td>
+                    </tr>
+                    <tr>
+                        <td>Root canal</td>
+                        <td>$800-2000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>🚑 Ambulance Services</h2>
+            
+            <div class="warning">
+                <strong>⚠️ Not Free!</strong> Ambulance costs $500-5000+ depending on distance
+            </div>
+            
+            <h3>Coverage by State</h3>
+            <ul>
+                <li><strong>QLD & TAS:</strong> Free for everyone</li>
+                <li><strong>Other states:</strong> Must pay or have insurance</li>
+            </ul>
+            
+            <h3>Ambulance Insurance Options</h3>
+            <ul>
+                <li>State ambulance membership: $50-100/year</li>
+                <li>Included in many health insurance policies</li>
+                <li>Some travel insurance covers it</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>💡 Alternative to Ambulance:</strong>
+                <ul>
+                    <li>Uber/taxi to hospital for non-emergencies</li>
+                    <li>GP home visits for urgent care</li>
+                    <li>Call Healthdirect 1800 022 222 for advice</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>😷 Mental Health Support</h2>
+            
+            <h3>Free Services</h3>
+            <ul>
+                <li><strong>Lifeline:</strong> 13 11 14 (24/7 crisis support)</li>
+                <li><strong>Beyond Blue:</strong> 1300 22 4636</li>
+                <li><strong>Headspace:</strong> Free for under 25s</li>
+                <li><strong>MensLine:</strong> 1300 78 99 78</li>
+            </ul>
+            
+            <h3>Low-Cost Options</h3>
+            <ul>
+                <li>University counseling (if studying)</li>
+                <li>Community health centers</li>
+                <li>Online therapy apps (BetterHelp, etc)</li>
+                <li>GP mental health plans (Medicare)</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🏥 Sexual Health</h2>
+            
+            <h3>Free/Low-Cost Services</h3>
+            <ul>
+                <li><strong>Sexual health clinics:</strong> Free STI testing</li>
+                <li><strong>Family Planning clinics:</strong> Contraception advice</li>
+                <li><strong>Bulk-billing GPs:</strong> STI tests, contraception</li>
+            </ul>
+            
+            <h3>Emergency Contraception</h3>
+            <ul>
+                <li>Available at pharmacies without prescription</li>
+                <li>Cost: $15-30</li>
+                <li>Effective within 72 hours (best within 24)</li>
+            </ul>
+            
+            <h3>Regular Contraception</h3>
+            <ul>
+                <li>Need GP prescription</li>
+                <li>Pills: $15-30/month</li>
+                <li>Condoms: Widely available</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Health Checklist for Backpackers</h2>
+            
+            <div class="checklist">
+                <h3>Before Leaving Hospital/Clinic</h3>
+                <ul>
+                    <li>Get itemized receipt for insurance</li>
+                    <li>Get medical certificate if needed for work</li>
+                    <li>Understand payment options/plans</li>
+                    <li>Get copy of test results</li>
+                    <li>Clarify follow-up requirements</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Health Kit Essentials</h3>
+                <ul>
+                    <li>Sunscreen SPF 50+</li>
+                    <li>Insect repellent (DEET)</li>
+                    <li>Basic first aid supplies</li>
+                    <li>Rehydration salts</li>
+                    <li>Antihistamines</li>
+                    <li>Pain relief medication</li>
+                    <li>Any prescription meds + letter</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Make checklist items interactive
+        document.querySelectorAll('.checklist li').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function() {
+                if (this.style.textDecoration === 'line-through') {
+                    this.style.textDecoration = 'none';
+                    this.style.opacity = '1';
+                } else {
+                    this.style.textDecoration = 'line-through';
+                    this.style.opacity = '0.6';
+                }
+            });
+        });
+        
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Emergency & Safety Guide - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #dc3545;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .emergency-numbers {
+            background: #dc3545;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .emergency-numbers h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .emergency-numbers .number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .emergency-numbers .description {
+            font-size: 1.1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #dc3545;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 {
+            color: #c82333;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .emergency-card {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .emergency-card h4 {
+            color: #721c24;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .contact-card h4 {
+            color: #dc3545;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card .phone {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .danger {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .safety-tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .hazard-icon {
+            font-size: 2rem;
+            margin-right: 0.5rem;
+        }
+        
+        .checklist {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 600px) {
+            .emergency-numbers .number {
+                font-size: 2.5rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>🚨 Emergency & Safety Guide</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="emergency-numbers">
+            <h2>Emergency Number</h2>
+            <div class="number">000</div>
+            <div class="description">Police, Fire, Ambulance</div>
+            <p style="margin-top: 1rem;">Free from any phone, including mobiles without credit</p>
+        </div>
+        
+        <div class="section">
+            <h2>📞 Essential Emergency Contacts</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>Emergency Services</h4>
+                    <p class="phone">000</p>
+                    <p>Police, Fire, Ambulance</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Police (Non-Emergency)</h4>
+                    <p class="phone">131 444</p>
+                    <p>Report non-urgent crimes</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Poisons Information</h4>
+                    <p class="phone">13 11 26</p>
+                    <p>24/7 advice on poisons/bites</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Lifeline Crisis Support</h4>
+                    <p class="phone">13 11 14</p>
+                    <p>Mental health support 24/7</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Sexual Assault Support</h4>
+                    <p class="phone">1800 737 732</p>
+                    <p>1800 RESPECT - 24/7 support</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Emergency+ App</h4>
+                    <p class="phone">Download Free</p>
+                    <p>Shows GPS coordinates for 000</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔥 Natural Disasters & Hazards</h2>
+            
+            <div class="emergency-card">
+                <h4><span class="hazard-icon">🔥</span>Bushfires</h4>
+                <p><strong>Season:</strong> October to March (varies by region)</p>
+                <p><strong>Apps:</strong> Fires Near Me (NSW), VIC Emergency, Emergency WA</p>
+                <p><strong>Fire Danger Ratings:</strong></p>
+                <ul>
+                    <li><strong>Catastrophic/Code Red:</strong> Leave bushfire areas immediately</li>
+                    <li><strong>Extreme:</strong> Avoid travel to bushfire areas</li>
+                    <li><strong>Severe/Very High:</strong> Have evacuation plan ready</li>
+                </ul>
+                <p><strong>If caught in fire:</strong> Call 000, seek shelter in cleared area/building, stay low</p>
+            </div>
+            
+            <div class="emergency-card">
+                <h4><span class="hazard-icon">🌊</span>Floods</h4>
+                <p><strong>Risk Areas:</strong> QLD (summer), NSW coast, NT (wet season)</p>
+                <p><strong>Never:</strong> Drive through floodwater - "If it's flooded, forget it"</p>
+                <p><strong>SES Flood Help:</strong> 132 500</p>
+                <p><strong>Monitor:</strong> BOM Weather app, ABC Emergency broadcasts</p>
+            </div>
+            
+            <div class="emergency-card">
+                <h4><span class="hazard-icon">🌀</span>Cyclones</h4>
+                <p><strong>Season:</strong> November to April (Northern Australia)</p>
+                <p><strong>Categories:</strong> 1 (weakest) to 5 (catastrophic)</p>
+                <p><strong>Preparation:</strong> Emergency kit, battery radio, secure accommodation</p>
+                <p><strong>During:</strong> Stay indoors, away from windows, beware the eye</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏖️ Beach & Water Safety</h2>
+            
+            <div class="danger">
+                <strong>⚠️ Critical:</strong> Australia has dangerous beaches. Many backpackers drown each year.
+            </div>
+            
+            <h3>Beach Safety Rules</h3>
+            <ul>
+                <li>🏊 <strong>Swim between the red and yellow flags ONLY</strong></li>
+                <li>🚫 Never swim at unpatrolled beaches</li>
+                <li>🌊 Never turn your back on waves</li>
+                <li>🍺 Never swim after drinking alcohol</li>
+                <li>🌙 Avoid swimming at dawn/dusk (sharks)</li>
+            </ul>
+            
+            <h3>Rip Currents</h3>
+            <div class="warning">
+                <strong>If caught in a rip:</strong>
+                <ol>
+                    <li>DON'T PANIC - Stay calm</li>
+                    <li>DON'T swim against it (towards shore)</li>
+                    <li>Swim PARALLEL to the beach</li>
+                    <li>Raise arm and call for help</li>
+                    <li>Float and conserve energy</li>
+                </ol>
+            </div>
+            
+            <h3>Marine Dangers</h3>
+            <div class="contact-grid">
+                <div class="emergency-card">
+                    <h4>🎐 Box Jellyfish</h4>
+                    <p><strong>Where:</strong> Northern Australia (Oct-May)</p>
+                    <p><strong>First Aid:</strong> Flood with vinegar, call 000</p>
+                </div>
+                
+                <div class="emergency-card">
+                    <h4>🎣 Bluebottle Stings</h4>
+                    <p><strong>Where:</strong> East coast beaches</p>
+                    <p><strong>First Aid:</strong> Hot water (not vinegar), remove tentacles</p>
+                </div>
+                
+                <div class="emergency-card">
+                    <h4>🦈 Sharks</h4>
+                    <p><strong>Prevention:</strong> Swim in groups, avoid dawn/dusk</p>
+                    <p><strong>If seen:</strong> Exit water calmly, alert others</p>
+                </div>
+                
+                <div class="emergency-card">
+                    <h4>🐊 Crocodiles</h4>
+                    <p><strong>Where:</strong> Northern QLD, NT, northern WA</p>
+                    <p><strong>Rule:</strong> NEVER swim in northern waterways</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🕷️ Dangerous Animals & First Aid</h2>
+            
+            <div class="contact-grid">
+                <div class="emergency-card">
+                    <h4>🕷️ Spider Bites</h4>
+                    <p><strong>Funnel-web/Redback:</strong> Apply pressure bandage, immobilize limb, call 000</p>
+                    <p><strong>Other spiders:</strong> Ice pack, seek medical attention if unwell</p>
+                </div>
+                
+                <div class="emergency-card">
+                    <h4>🐍 Snake Bites</h4>
+                    <p><strong>First Aid:</strong> Pressure immobilization bandage, call 000</p>
+                    <p><strong>Don't:</strong> Wash bite, try to catch snake, apply tourniquet</p>
+                </div>
+                
+                <div class="emergency-card">
+                    <h4>🦟 Insect Bites</h4>
+                    <p><strong>Prevention:</strong> Use DEET repellent, cover up at dusk</p>
+                    <p><strong>Diseases:</strong> Ross River virus, Dengue (far north)</p>
+                </div>
+                
+                <div class="emergency-card">
+                    <h4>☀️ Sun Exposure</h4>
+                    <p><strong>UV Extreme:</strong> 10am-4pm most days</p>
+                    <p><strong>Protection:</strong> SPF50+, hat, seek shade, reapply every 2hr</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚗 Road Safety</h2>
+            
+            <h3>Outback Driving Safety</h3>
+            <div class="checklist">
+                <ul>
+                    <li>Tell someone your route and expected arrival</li>
+                    <li>Carry extra water (4L per person per day)</li>
+                    <li>Never leave your vehicle if broken down</li>
+                    <li>Hire/buy an EPIRB for remote areas</li>
+                    <li>Check road conditions: 13 19 40</li>
+                    <li>Watch for wildlife at dawn/dusk</li>
+                </ul>
+            </div>
+            
+            <div class="danger">
+                <strong>⚠️ Wildlife Collisions:</strong> Kangaroos and wombats can cause serious accidents. Avoid driving at dawn/dusk in rural areas.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏥 Medical Emergencies</h2>
+            
+            <h3>When to Call 000</h3>
+            <ul>
+                <li>Chest pain or difficulty breathing</li>
+                <li>Unconsciousness or severe bleeding</li>
+                <li>Severe allergic reaction (anaphylaxis)</li>
+                <li>Suspected stroke or heart attack</li>
+                <li>Serious injury or trauma</li>
+            </ul>
+            
+            <h3>Non-Emergency Medical Help</h3>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>Healthdirect</h4>
+                    <p class="phone">1800 022 222</p>
+                    <p>24/7 health advice from nurses</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>GP After Hours</h4>
+                    <p class="phone">13 74 25</p>
+                    <p>Home visits available</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Dental Emergency</h4>
+                    <p>Search "emergency dentist [city]"</p>
+                    <p>Public dental: Long waits</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚔 Crime & Personal Safety</h2>
+            
+            <h3>Staying Safe</h3>
+            <ul>
+                <li>Avoid walking alone at night</li>
+                <li>Keep valuables out of sight</li>
+                <li>Lock hostel lockers always</li>
+                <li>Don't leave bags unattended on beaches</li>
+                <li>Be cautious with new "friends" offering deals</li>
+                <li>Trust your instincts</li>
+            </ul>
+            
+            <h3>If You're a Victim of Crime</h3>
+            <ol>
+                <li>Ensure your safety first</li>
+                <li>Call 000 if emergency, 131 444 if non-urgent</li>
+                <li>Don't touch anything (preserve evidence)</li>
+                <li>Get police report number for insurance</li>
+                <li>Contact your embassy if passport stolen</li>
+            </ol>
+            
+            <div class="safety-tip">
+                <strong>💡 Safety Tip:</strong> Take photos of all important documents and store in cloud. Keep embassy contact details saved in phone.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📱 Embassy Contacts</h2>
+            <p>Your embassy can help with lost passports, arrests, serious illness, or death of relatives.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>UK</h4>
+                    <p class="phone">1300 555 135</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>USA</h4>
+                    <p class="phone">(02) 9373 9200</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Canada</h4>
+                    <p class="phone">1300 555 135</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Germany</h4>
+                    <p class="phone">(02) 8302 4900</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>France</h4>
+                    <p class="phone">(02) 9268 2400</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Ireland</h4>
+                    <p class="phone">(02) 9664 5300</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 1rem;"><small>For other countries, search: "[Country] embassy Australia"</small></p>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Emergency Preparedness Checklist</h2>
+            <div class="checklist">
+                <ul>
+                    <li>Save 000 and other emergency numbers in phone</li>
+                    <li>Download Emergency+ app for GPS location</li>
+                    <li>Know nearest hospital location</li>
+                    <li>Have first aid kit in accommodation</li>
+                    <li>Keep $50-100 emergency cash hidden</li>
+                    <li>Share itinerary with family/friends</li>
+                    <li>Register with SmartTraveller.gov.au</li>
+                    <li>Know your blood type and allergies</li>
+                    <li>Have emergency contact card in wallet</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>

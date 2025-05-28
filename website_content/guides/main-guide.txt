@@ -1,0 +1,174 @@
+# Working‑Holiday Helper — Visitor Content (v 1.0)
+
+*Focus: Working‑Holiday Maker (subclass 417/462) arrivals*
+
+---
+
+## #visa  Working‑Holiday Visa Guide
+
+### 1  Eligibility
+
+* **Age**  18–30 (35 for UK, Canada, Ireland, France, Italy, Denmark).
+* **Passport**  Must be from an eligible country (list on Home Affairs).
+* **Funds**  ≈ AUD 5 000 + onward ticket or equivalent funds.
+* **Health/Character**  Medical exams & police checks as requested.
+
+### 2  Application Steps
+
+1. Create **ImmiAccount** and complete online form.
+2. Pay visa fee (credit/debit).
+3. Upload docs (passport scan, photo, police certs).
+4. Wait for *Grant Notice* email.
+5. Enter Australia within 12 months; visa activates on entry.
+
+### 3  On‑Visa Conditions
+
+* Work ≤ 6 months per employer *(exceptions for agriculture, tourism, health, northern Aus.)*.
+* No dependent children.
+* Multiple entries allowed within 12‑month stay.
+
+### 4  Extensions
+
+* **2nd Year**  Complete **3 months / 88 days** specified regional work.
+* **3rd Year**  Complete additional **6 months** specified work on 2nd visa.
+* UK citizens (from 1 July 2024) **no farm‑work requirement**.
+
+---
+
+## #setup  Essential Arrival Setup
+
+### Banking
+
+* Big‑4 banks (CBA, Westpac, NAB, ANZ) allow pre‑open online; finalise ID in branch with passport.
+* Accounts usually fee‑free for first 12 months; debit card mailed to hostel/address.
+
+### Tax File Number (TFN)
+
+* Apply **online** once in Aus → ATO website → "Foreign passport holders" form.
+* Needs local address; TFN letter arrives ≈ 14 days.
+
+### Medicare / Health Cover
+
+* RHCA countries (UK, NZ, IE, etc.) → enrol at Services Australia office.
+* Others → buy travel / OVHC insurance.
+
+### SIM & Data
+
+* Telstra (best coverage), Optus, Vodafone; buy prepaid starter kit at airport/supermarket.
+* ID (passport) required for activation; eSIM available on flagship phones.
+
+### MyGov & ID
+
+* Create MyGov account to link ATO & Medicare.
+* Optional state photo‑ID card for nightlife (avoid carrying passport).
+
+---
+
+## #apps  Must‑Have Apps
+
+| Purpose          | iOS / Android Examples                                 |
+| ---------------- | ------------------------------------------------------ |
+| Safety           | **Emergency+**, Fire Near Me, VicEmergency             |
+| Public transport | **Opal Travel**, **PTV**, **Translink**, **Metro Tas** |
+| Navigation       | Google Maps, Waze (road alerts)                        |
+| Jobs             | Seek, Indeed, Gumtree, Backpacker Job Board, AirTasker |
+| Accommodation    | Hostelworld, Booking.com, Airbnb, Flatmates            |
+| Money            | CommBank, Westpac, NAB, ANZ apps, XE Currency          |
+| Social           | Meetup, Travello, WhatsApp, Facebook Messenger         |
+| Travel           | Skyscanner, Rome2Rio, WikiCamps AUS                    |
+
+---
+
+## #laws  Key Australian Laws & Etiquette
+
+### Driving
+
+* Drive **left‑hand side**; seatbelts mandatory.
+* BAC ≤ 0.05 % (zero for L/P plates); random breath‑tests common.
+* Overseas licence valid 3–6 months per state; carry IDP if not English.
+
+### Alcohol & Smoking
+
+* Legal drinking age 18; ID demanded if < 25.
+* Drinking in public often prohibited; check signage.
+* Smoking banned indoors & many outdoor areas; hefty fines.
+
+### Fines & Offences
+
+* Littering, jay‑walking, public urination → on‑the‑spot fines.
+* Drug possession illegal nationwide.
+
+### Aussie Etiquette
+
+* Informal – first names, “G’day”, “mate”, “no worries”.
+* Queues respected; punctuality for work/appointments.
+* Tipping not expected; round up for exceptional service only.
+* Bring a dish/drinks when invited to BBQ (**BYO**).
+
+---
+
+## #health  Health & Safety
+
+* **Emergency 000** (or 112 mobile). 13 11 26 Poisons. 131 444 police non‑urgent.
+* Sun‑safe: SPF 30+, hat, hydrate.
+* Swim at patrolled beaches between red‑yellow flags.
+* Bushfire season: use state alert apps; respect total‑fire bans.
+* Snakes/spiders: rare—wear boots, first‑aid bandage, call 000 if bitten.
+* Ambulance **not free** in most states – ensure insurance covers.
+
+---
+
+## #jobs  Work & Superannuation
+
+### Finding Work
+
+* Hospitality (RSA needed for alcohol). Retail, tourism, construction.
+* Farm/harvest jobs for visa extension – check **Harvest Trail**.
+* Use Seek/Indeed & hostel noticeboards; confirm award wages.
+
+### Rights & Pay
+
+* Minimum casual wage ≈ AUD 23 hr (Jul 2025).
+* Payslip every payday; no "cash‑in‑hand" underpaying.
+* Fair Work Ombudsman for disputes; you’re protected by law.
+
+### Superannuation
+
+* Employer must pay **11 %** into super fund.
+* Claim back via **DASP** after visa ends (65 % tax on payout).
+
+### Taxes
+
+* WHM tax: 15 % on first \$45 000, then resident rates.
+* Lodge tax return at EOFY or when departing.
+
+---
+
+## #checklists  Pre‑Departure & Week‑1
+
+### Pre‑Departure
+
+* ✅ Visa granted & printed
+* ✅ Insurance purchased (medical + travel)
+* ✅ Passport valid 6 + months
+* ✅ AUD cash / low‑fee card / bank statements
+* ✅ Unlock phone / purchase eSIM
+* ✅ Book initial 7 nights accommodation
+* ✅ Upload scans of docs to cloud
+
+### Week 1 in Australia
+
+1. Activate SIM / send arrival message.
+2. Open bank account (passport + hostel address).
+3. Apply TFN online.
+4. Enrol in Medicare (*if RHCA*).
+5. Buy transport card (Opal / myki / Go Card).
+6. Explore neighbourhood, find supermarket & chemist.
+7. Update CV with Aussie contact info.
+8. Install essential apps (see list).
+9. Attend hostel/meetup social to make friends.
+10. Plan job search or farm‑work season.
+
+---
+
+*End of Visitor Content File*

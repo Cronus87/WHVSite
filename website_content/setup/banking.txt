@@ -1,0 +1,61 @@
+# Quick Guide – Opening an Australian Bank Account
+
+*Last updated 27 May 2025*
+
+---
+
+## 1  Documents & Details to Bring
+
+| 📄 Item                                                  | Why Needed                                                  |
+| -------------------------------------------------------- | ----------------------------------------------------------- |
+| **Passport** (photo page)                                | Mandatory primary ID for 100-point check                    |
+| **Australian address** (hostel booking / friend’s place) | For mailing debit card & proof-of-address field             |
+| **Visa grant notice** (print or PDF)                     | Confirms legal status if teller asks                        |
+| Local **mobile number** (or email)                       | SMS verification & online-bank setup                        |
+| Initial **deposit** (cash or card, optional)             | Activate account instantly & avoid ATM fee to deposit later |
+
+> *Tip – No utility bill yet? Most banks accept your hostel address + booking email as temporary proof. Update later when you move.*
+
+---
+
+## 2  Step-by-Step Process
+
+1. **Choose a bank**
+   *Big-4 = Commonwealth Bank (CBA), Westpac, NAB, ANZ.* All have wide ATM networks and online “Open Before You Arrive” forms.
+2. **Pre-open online (optional)**
+   Complete the bank’s migrant form up to 12 months before arrival – you’ll get an application reference.
+3. **Visit any branch** with passport within 30 days of landing. Take reference (if pre-opened) or walk-in as new customer.
+4. **Verify identity** – teller scans passport, asks address & visa class. 100-point ID passed, account activated.
+5. **Receive account details** (BSB + Account No.) instantly; debit card arrives at address in \~5 days.
+6. **Register online/mobile banking** while still in branch (staff can help). Set 4-digit PIN for card.
+7. **Deposit cash** or transfer funds to avoid dormant-fee flags.
+
+---
+
+## 3  Plan & Fee Checklist
+
+* Everyday transaction accounts are **fee-free** for 12 months for new migrants/backpackers (check promo).
+* **ATM withdrawals** at your bank’s machines = free; ≈ \$2 fee at others. Telstra/Optus recharge available in app.
+* Overdrafts disabled by default – avoid accidental negative balance fees.
+* Ask to **link a savings account** (e.g. NetBank Saver) to earn interest once you start saving.
+* Enable **Apple Pay / Google Wallet** in-app – almost all shops use tap-and-go.
+
+---
+
+## 4  Fast FAQ
+
+* **Can I open without a TFN yet?** Yes. Give it to the bank later to avoid withholding tax on interest.
+* **Do I need an appointment?** Not usually – walk-ins accepted, but book online if you prefer shorter wait.
+* **Which bank is best?** CBA has the largest branch network; Westpac partners with selected ATMs globally; NAB offers no monthly-fee account even after promo; ANZ has strong app UX. Pick whichever has a branch near your hostel.
+* **Changing address?** Update in the app or at any branch – required within 14 days of moving.
+
+---
+
+## 5  After the Branch Visit – Next Moves
+
+1. **Add TFN** to your online banking profile once you receive it.
+2. **Set up PayID** (link mobile/email) for instant transfers.
+3. Keep a photo of **BSB / Account No.** – employers need it on day-one paperwork.
+4. If long-term, consider a **travel card** or **Wise** for low-fee international transfers back home.
+
+Your Aussie bank account is now ready – time to get paid!

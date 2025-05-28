@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>First Week Checklist - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .progress-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #1976d2, #42a5f5);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .day-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        
+        .day-number {
+            background: #1976d2;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .day-section.completed .day-number {
+            background: #4caf50;
+        }
+        
+        .day-title {
+            flex: 1;
+        }
+        
+        .day-title h2 {
+            color: #1976d2;
+            margin: 0;
+        }
+        
+        .day-title p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .checklist {
+            margin-top: 1rem;
+        }
+        
+        .checklist-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #1976d2;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .checklist-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .checklist-item.completed {
+            border-left-color: #4caf50;
+            opacity: 0.7;
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #1976d2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        
+        .checklist-item.completed .checkbox {
+            background: #4caf50;
+            border-color: #4caf50;
+        }
+        
+        .checklist-item.completed .checkbox:after {
+            content: "✓";
+            color: white;
+            font-weight: bold;
+        }
+        
+        .checklist-content {
+            flex: 1;
+        }
+        
+        .checklist-content h4 {
+            margin: 0 0 0.25rem 0;
+            color: #333;
+        }
+        
+        .checklist-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .checklist-item.completed .checklist-content h4 {
+            text-decoration: line-through;
+        }
+        
+        .priority-high {
+            border-left-color: #dc3545 !important;
+        }
+        
+        .priority-tag {
+            background: #dc3545;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+        
+        .tips-section {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .tips-section h3 {
+            color: #155724;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 600px) {
+            .day-header {
+                flex-wrap: wrap;
+            }
+            
+            .checklist-item {
+                padding: 0.75rem;
+            }
+            
+            .checklist-content p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>First Week in Australia Checklist</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="progress-section">
+            <h2>Your Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+            <p id="progressText">0 of 25 tasks completed</p>
+        </div>
+        
+        <div class="day-section" data-day="0">
+            <div class="day-header">
+                <div class="day-number">✈️</div>
+                <div class="day-title">
+                    <h2>Before Arrival</h2>
+                    <p>Essential preparations</p>
+                </div>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item priority-high" data-task="visa-grant">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Print visa grant letter<span class="priority-tag">CRITICAL</span></h4>
+                        <p>Have physical and digital copies ready</p>
+                    </div>
+                </div>
+                <div class="checklist-item priority-high" data-task="accommodation">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Book first week accommodation<span class="priority-tag">CRITICAL</span></h4>
+                        <p>Hostel or Airbnb in city center</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="travel-insurance">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Activate travel insurance</h4>
+                        <p>Ensure coverage starts on departure date</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-section" data-day="1">
+            <div class="day-header">
+                <div class="day-number">1</div>
+                <div class="day-title">
+                    <h2>Day 1 - Arrival</h2>
+                    <p>Getting through the airport and settling in</p>
+                </div>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item priority-high" data-task="immigration">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Clear immigration<span class="priority-tag">CRITICAL</span></h4>
+                        <p>Show visa grant, return ticket, proof of funds if asked</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="sim-card">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Buy SIM card at airport</h4>
+                        <p>Get data immediately - Optus/Telstra/Vodafone</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="transport">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Get transport card</h4>
+                        <p>Opal/myki/go card from airport shop</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="check-in">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Check into accommodation</h4>
+                        <p>Get local area map and emergency info</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-section" data-day="2">
+            <div class="day-header">
+                <div class="day-number">2</div>
+                <div class="day-title">
+                    <h2>Day 2 - Banking & TFN</h2>
+                    <p>Setting up your financial foundation</p>
+                </div>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item priority-high" data-task="bank-visit">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Visit bank branch<span class="priority-tag">CRITICAL</span></h4>
+                        <p>Activate pre-opened account or open new one</p>
+                    </div>
+                </div>
+                <div class="checklist-item priority-high" data-task="tfn-apply">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Apply for Tax File Number<span class="priority-tag">CRITICAL</span></h4>
+                        <p>Online at ATO website - need Australian address</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="supermarket">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Find local supermarket</h4>
+                        <p>Woolworths/Coles/ALDI - get rewards card</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-section" data-day="3">
+            <div class="day-header">
+                <div class="day-number">3</div>
+                <div class="day-title">
+                    <h2>Day 3 - Healthcare & Communications</h2>
+                    <p>Health coverage and staying connected</p>
+                </div>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item" data-task="medicare">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Enroll in Medicare (if eligible)</h4>
+                        <p>UK/Ireland/other RHCA countries only</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="mygov">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Create myGov account</h4>
+                        <p>Link ATO for tax and TFN status</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="phone-plan">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Set up proper phone plan</h4>
+                        <p>Compare prepaid options for best value</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-section" data-day="4">
+            <div class="day-header">
+                <div class="day-number">4</div>
+                <div class="day-title">
+                    <h2>Day 4-5 - Job Preparation</h2>
+                    <p>Getting ready for work</p>
+                </div>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item" data-task="resume">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Update resume to Australian format</h4>
+                        <p>2 pages max, include visa status</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="job-sites">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Register on job sites</h4>
+                        <p>Seek, Indeed, Gumtree accounts</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="certifications">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Research required certifications</h4>
+                        <p>RSA for bar work, White Card for construction</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="super-fund">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Choose superannuation fund</h4>
+                        <p>Hostplus, AustralianSuper, or REST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-section" data-day="6">
+            <div class="day-header">
+                <div class="day-number">6</div>
+                <div class="day-title">
+                    <h2>Day 6-7 - Settling In</h2>
+                    <p>Finding your rhythm</p>
+                </div>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item" data-task="long-term-housing">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Start looking for share house</h4>
+                        <p>Flatmates.com.au, Facebook groups</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="social">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Join backpacker Facebook groups</h4>
+                        <p>Great for jobs, housing, and social events</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="explore">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Explore your neighborhood</h4>
+                        <p>Find cheap eats, libraries, free WiFi spots</p>
+                    </div>
+                </div>
+                <div class="checklist-item" data-task="emergency-plan">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h4>Make emergency plan</h4>
+                        <p>Know nearest hospital, save emergency numbers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tips-section">
+            <h3>💡 Pro Tips for Your First Week</h3>
+            <ul>
+                <li><strong>Keep all receipts</strong> - You'll need them for tax returns</li>
+                <li><strong>Take photos of all documents</strong> - Backup everything digitally</li>
+                <li><strong>Don't rush into long commitments</strong> - Take time to find right fit</li>
+                <li><strong>Network at your hostel</strong> - Other backpackers have great tips</li>
+                <li><strong>Use free WiFi wisely</strong> - Download offline maps and apps</li>
+                <li><strong>Start job hunting immediately</strong> - Even if just looking</li>
+            </ul>
+        </div>
+    </main>
+    
+    <script>
+        // Load saved progress
+        let completedTasks = JSON.parse(localStorage.getItem('checklistProgress') || '{}');
+        
+        // Initialize checklist items
+        document.querySelectorAll('.checklist-item').forEach(item => {
+            const taskId = item.dataset.task;
+            
+            // Check if task was previously completed
+            if (completedTasks[taskId]) {
+                item.classList.add('completed');
+            }
+            
+            // Add click handler
+            item.addEventListener('click', function() {
+                this.classList.toggle('completed');
+                
+                // Save progress
+                if (this.classList.contains('completed')) {
+                    completedTasks[taskId] = true;
+                } else {
+                    delete completedTasks[taskId];
+                }
+                
+                localStorage.setItem('checklistProgress', JSON.stringify(completedTasks));
+                updateProgress();
+            });
+        });
+        
+        // Update progress bar
+        function updateProgress() {
+            const totalTasks = document.querySelectorAll('.checklist-item').length;
+            const completedCount = document.querySelectorAll('.checklist-item.completed').length;
+            const percentage = Math.round((completedCount / totalTasks) * 100);
+            
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressFill').textContent = percentage + '%';
+            document.getElementById('progressText').textContent = `${completedCount} of ${totalTasks} tasks completed`;
+            
+            // Update day sections
+            document.querySelectorAll('.day-section').forEach(section => {
+                const dayTasks = section.querySelectorAll('.checklist-item').length;
+                const dayCompleted = section.querySelectorAll('.checklist-item.completed').length;
+                
+                if (dayTasks === dayCompleted && dayTasks > 0) {
+                    section.classList.add('completed');
+                } else {
+                    section.classList.remove('completed');
+                }
+            });
+        }
+        
+        // Initial progress update
+        updateProgress();
+        
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Accommodation Guide - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 {
+            color: #1565c0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .accommodation-type {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .accommodation-type h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-range {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 0.5rem 0;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .pros, .cons {
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .pros {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .cons {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        
+        .pros h5, .cons h5 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .pros li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .cons li:before {
+            content: "✗ ";
+            color: #f44336;
+            font-weight: bold;
+        }
+        
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .cost-table th,
+        .cost-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .cost-table th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #1976d2;
+            font-size: 1.2rem;
+        }
+        
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .platform-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        
+        .platform-card h4 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 600px) {
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .cost-table {
+                font-size: 0.9rem;
+            }
+            
+            .cost-table th,
+            .cost-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>Accommodation Guide</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section">
+            <h2>🏠 Types of Accommodation</h2>
+            
+            <div class="accommodation-type">
+                <h4>🎒 Hostels</h4>
+                <p class="price-range">$25-45/night (dorm) | $80-120/night (private)</p>
+                <p>Best for first few weeks and meeting other travelers</p>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Pros</h5>
+                        <ul>
+                            <li>Instant social network</li>
+                            <li>Job boards & work connections</li>
+                            <li>No contracts or bonds</li>
+                            <li>Often include facilities</li>
+                            <li>Central locations</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Cons</h5>
+                        <ul>
+                            <li>Expensive long-term</li>
+                            <li>Limited privacy</li>
+                            <li>Can be noisy</li>
+                            <li>Security concerns</li>
+                            <li>Shared bathrooms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accommodation-type">
+                <h4>🏠 Share Houses</h4>
+                <p class="price-range">$150-300/week (room) | $100-200/week (shared room)</p>
+                <p>Best for medium to long-term stays</p>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Pros</h5>
+                        <ul>
+                            <li>Much cheaper than hostels</li>
+                            <li>More privacy & space</li>
+                            <li>Kitchen & laundry access</li>
+                            <li>Build local connections</li>
+                            <li>Can register for mail</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Cons</h5>
+                        <ul>
+                            <li>Bond required (2-4 weeks)</li>
+                            <li>Minimum stay periods</li>
+                            <li>Housemate conflicts</li>
+                            <li>Utility bills extra</li>
+                            <li>Harder to find initially</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accommodation-type">
+                <h4>🏢 Private Rentals</h4>
+                <p class="price-range">$300-600/week (studio) | $400-800/week (1-bed)</p>
+                <p>Best for couples or those staying 6+ months</p>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Pros</h5>
+                        <ul>
+                            <li>Complete privacy</li>
+                            <li>Your own space</li>
+                            <li>Can have guests</li>
+                            <li>Stable address</li>
+                            <li>Build rental history</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Cons</h5>
+                        <ul>
+                            <li>Expensive</li>
+                            <li>6-12 month leases</li>
+                            <li>Strict application process</li>
+                            <li>Furnishing costs</li>
+                            <li>All bills your responsibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💰 Rental Costs Breakdown</h2>
+            
+            <table class="cost-table">
+                <thead>
+                    <tr>
+                        <th>Cost Item</th>
+                        <th>Amount</th>
+                        <th>When Due</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bond/Security Deposit</td>
+                        <td>2-4 weeks rent</td>
+                        <td>Before moving in</td>
+                    </tr>
+                    <tr>
+                        <td>Rent in Advance</td>
+                        <td>2-4 weeks rent</td>
+                        <td>Before moving in</td>
+                    </tr>
+                    <tr>
+                        <td>Utilities Connection</td>
+                        <td>$100-300</td>
+                        <td>First week</td>
+                    </tr>
+                    <tr>
+                        <td>Internet Setup</td>
+                        <td>$50-100</td>
+                        <td>First week</td>
+                    </tr>
+                    <tr>
+                        <td>Contents Insurance</td>
+                        <td>$15-30/month</td>
+                        <td>Optional</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="warning">
+                <strong>⚠️ Total upfront cost:</strong> Expect to pay 4-8 weeks rent upfront (bond + advance rent)
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔍 Where to Search</h2>
+            
+            <h3>Hostels</h3>
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <h4>Hostelworld</h4>
+                    <p>Largest selection, reviews</p>
+                </div>
+                <div class="platform-card">
+                    <h4>Booking.com</h4>
+                    <p>Often cheaper rates</p>
+                </div>
+                <div class="platform-card">
+                    <h4>YHA/HI</h4>
+                    <p>Quality assured</p>
+                </div>
+                <div class="platform-card">
+                    <h4>Direct Booking</h4>
+                    <p>Call for best rates</p>
+                </div>
+            </div>
+            
+            <h3>Share Houses & Rentals</h3>
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <h4>Flatmates.com.au</h4>
+                    <p>Share house focused</p>
+                </div>
+                <div class="platform-card">
+                    <h4>Gumtree</h4>
+                    <p>Lots of options</p>
+                </div>
+                <div class="platform-card">
+                    <h4>Facebook Groups</h4>
+                    <p>"[City] Rentals"</p>
+                </div>
+                <div class="platform-card">
+                    <h4>Domain/REA</h4>
+                    <p>Official rentals</p>
+                </div>
+            </div>
+            
+            <h3>Facebook Groups to Join</h3>
+            <ul>
+                <li>Fairy Floss Real Estate (Sydney/Melbourne)</li>
+                <li>[City] Inner West Housemates</li>
+                <li>Backpackers [City] Accommodation</li>
+                <li>[City] Room for Rent</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Viewing Checklist</h2>
+            
+            <div class="checklist">
+                <h3>Before Viewing</h3>
+                <ul>
+                    <li>Confirm exact address and viewing time</li>
+                    <li>Check public transport access</li>
+                    <li>Research the neighborhood safety</li>
+                    <li>Prepare questions about bills/rules</li>
+                    <li>Have ID and references ready</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>During Viewing</h3>
+                <ul>
+                    <li>Test all taps, lights, and power outlets</li>
+                    <li>Check for mold, especially in bathroom</li>
+                    <li>Test phone reception in all rooms</li>
+                    <li>Look for signs of pests</li>
+                    <li>Check locks on doors and windows</li>
+                    <li>Ask about internet speed/provider</li>
+                    <li>Clarify what's included in rent</li>
+                    <li>Ask about house rules and guests</li>
+                    <li>Take photos of any existing damage</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>⚠️ Rental Scams - Red Flags</h2>
+            
+            <div class="warning">
+                <strong>🚫 NEVER:</strong>
+                <ul>
+                    <li>Pay bond before viewing the property</li>
+                    <li>Transfer money overseas</li>
+                    <li>Pay via gift cards or crypto</li>
+                    <li>Rent from someone "traveling abroad"</li>
+                    <li>Accept "too good to be true" prices</li>
+                </ul>
+            </div>
+            
+            <h3>Common Scam Tactics</h3>
+            <ul>
+                <li><strong>Fake listings:</strong> Using photos from real estate sites</li>
+                <li><strong>Pressure tactics:</strong> "Many people interested, pay now"</li>
+                <li><strong>Overseas landlord:</strong> Can't show property, will mail keys</li>
+                <li><strong>Upfront payments:</strong> Asking for bond via Western Union</li>
+                <li><strong>Identity theft:</strong> Asking for too much personal info</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>✅ Safe Payment Methods:</strong>
+                <ul>
+                    <li>Bank transfer with proper receipt</li>
+                    <li>BPAY to official real estate trust account</li>
+                    <li>Credit card (for hostels/hotels)</li>
+                    <li>PayID to verified accounts only</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📜 Tenant Rights & Responsibilities</h2>
+            
+            <h3>Your Rights</h3>
+            <ul>
+                <li>Quiet enjoyment of the property</li>
+                <li>Minimum 24 hours notice for inspections</li>
+                <li>Repairs completed in reasonable time</li>
+                <li>Bond lodged with government authority</li>
+                <li>Proper notice for rent increases</li>
+                <li>Itemized receipt for all payments</li>
+            </ul>
+            
+            <h3>Your Responsibilities</h3>
+            <ul>
+                <li>Pay rent on time</li>
+                <li>Keep property reasonably clean</li>
+                <li>Report damage immediately</li>
+                <li>Allow inspections with notice</li>
+                <li>Not disturb neighbors</li>
+                <li>Pay for damages you cause</li>
+            </ul>
+            
+            <h3>Bond Return Process</h3>
+            <ol>
+                <li>Give proper notice when leaving (usually 2-4 weeks)</li>
+                <li>Clean property to entry condition</li>
+                <li>Attend final inspection</li>
+                <li>Return all keys and remotes</li>
+                <li>Complete bond claim form</li>
+                <li>Receive bond within 14 days</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>🏙️ City-Specific Tips</h2>
+            
+            <h3>Sydney</h3>
+            <ul>
+                <li><strong>Budget suburbs:</strong> Ashfield, Marrickville, Parramatta</li>
+                <li><strong>Beach areas:</strong> Coogee, Bondi (expensive but popular)</li>
+                <li><strong>Avoid:</strong> Expensive CBD, far western suburbs</li>
+            </ul>
+            
+            <h3>Melbourne</h3>
+            <ul>
+                <li><strong>Budget suburbs:</strong> Brunswick, Footscray, Preston</li>
+                <li><strong>Popular areas:</strong> St Kilda, Fitzroy, Collingwood</li>
+                <li><strong>Avoid:</strong> CBD apartments (small and expensive)</li>
+            </ul>
+            
+            <h3>Brisbane</h3>
+            <ul>
+                <li><strong>Budget suburbs:</strong> West End, Woolloongabba, Annerley</li>
+                <li><strong>Popular areas:</strong> New Farm, Fortitude Valley</li>
+                <li><strong>Avoid:</strong> Flood-prone areas without checking history</li>
+            </ul>
+            
+            <h3>Perth</h3>
+            <ul>
+                <li><strong>Budget suburbs:</strong> Victoria Park, East Perth, Maylands</li>
+                <li><strong>Beach areas:</strong> Scarborough, Cottesloe</li>
+                <li><strong>Note:</strong> More car-dependent than east coast</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>💡 Money-Saving Tips</h2>
+            
+            <div class="tip">
+                <strong>Negotiation Tactics:</strong>
+                <ul>
+                    <li>Offer to pay several weeks upfront for discount</li>
+                    <li>Negotiate if staying 3+ months</li>
+                    <li>Ask about including bills in rent</li>
+                    <li>Offer to do cleaning/gardening for reduction</li>
+                    <li>Look for places during winter (lower demand)</li>
+                </ul>
+            </div>
+            
+            <div class="tip">
+                <strong>Hidden Costs to Budget:</strong>
+                <ul>
+                    <li>Electricity/Gas: $20-40/week per person</li>
+                    <li>Internet: $15-25/week shared</li>
+                    <li>Contents insurance: $5-10/week</li>
+                    <li>Laundry: $4-8 per load if no machine</li>
+                    <li>Transport to work: $30-60/week</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Make checklist items clickable
+        document.querySelectorAll('.checklist li').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function() {
+                const checkbox = this.querySelector(':before');
+                if (this.style.textDecoration === 'line-through') {
+                    this.style.textDecoration = 'none';
+                    this.style.opacity = '1';
+                } else {
+                    this.style.textDecoration = 'line-through';
+                    this.style.opacity = '0.6';
+                }
+            });
+        });
+        
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>

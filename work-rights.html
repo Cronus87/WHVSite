@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Work Rights & Certifications - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 {
+            color: #1565c0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .wage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .wage-table th,
+        .wage-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .wage-table th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        
+        .wage-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .certification-card {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .certification-card h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certification-card .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 0.5rem 0;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .rights-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .rights-box h4 {
+            color: #721c24;
+            margin-bottom: 0.5rem;
+        }
+        
+        .checklist {
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .job-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .job-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .job-card h4 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 600px) {
+            .wage-table {
+                font-size: 0.9rem;
+            }
+            
+            .wage-table th,
+            .wage-table td {
+                padding: 0.5rem;
+            }
+            
+            .job-type-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>Work Rights & Certifications</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section">
+            <h2>💰 Your Work Rights in Australia</h2>
+            
+            <div class="rights-box">
+                <h4>⚖️ Know Your Rights!</h4>
+                <ul>
+                    <li>You have the SAME work rights as Australians</li>
+                    <li>Minimum wage applies to ALL workers</li>
+                    <li>Employers CANNOT keep your passport</li>
+                    <li>You MUST be paid at least every 2 weeks</li>
+                    <li>Cash-in-hand below minimum wage is ILLEGAL</li>
+                </ul>
+            </div>
+            
+            <h3>Work Restrictions</h3>
+            <ul>
+                <li>✅ Work for up to 6 months with one employer</li>
+                <li>✅ Work unlimited hours (no weekly limit)</li>
+                <li>✅ Change employers anytime</li>
+                <li>❌ Cannot work more than 6 months for same employer (except in eligible industries)</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>💡 Exception:</strong> You can work longer than 6 months in agriculture, healthcare, tourism, and northern Australia (above Tropic of Capricorn).
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💵 Minimum Wages (as of 2024)</h2>
+            
+            <table class="wage-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Hourly Rate</th>
+                        <th>Weekly (38 hrs)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Adult (21+)</td>
+                        <td>$23.23</td>
+                        <td>$882.74</td>
+                    </tr>
+                    <tr>
+                        <td>20 years old</td>
+                        <td>$18.58</td>
+                        <td>$706.04</td>
+                    </tr>
+                    <tr>
+                        <td>19 years old</td>
+                        <td>$15.10</td>
+                        <td>$573.80</td>
+                    </tr>
+                    <tr>
+                        <td>18 years old</td>
+                        <td>$13.05</td>
+                        <td>$495.90</td>
+                    </tr>
+                    <tr>
+                        <td>Casual Loading</td>
+                        <td>+25%</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Penalty Rates</h3>
+            <ul>
+                <li><strong>Saturday:</strong> Usually 1.25x normal rate</li>
+                <li><strong>Sunday:</strong> Usually 1.5x-2x normal rate</li>
+                <li><strong>Public Holidays:</strong> Usually 2.5x normal rate</li>
+                <li><strong>Night Work:</strong> Often includes extra loading</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>⚠️ Warning:</strong> If paid less than minimum wage, contact Fair Work Ombudsman: 13 13 94
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📜 Essential Certifications</h2>
+            
+            <div class="certification-card">
+                <h4>🍺 RSA - Responsible Service of Alcohol</h4>
+                <p class="price">Cost: $50-150</p>
+                <p><strong>Required for:</strong> Bars, restaurants, bottle shops, venues serving alcohol</p>
+                <p><strong>Valid in:</strong> State-specific (some states accept others)</p>
+                <p><strong>Duration:</strong> Usually 4-6 hours online</p>
+                <p><strong>Providers:</strong> 
+                    <ul>
+                        <li>NSW: Liquor & Gaming NSW approved providers</li>
+                        <li>VIC: VCGLR approved RTOs</li>
+                        <li>QLD: Approved RTOs only</li>
+                        <li>WA: Approved RTOs (in-person required)</li>
+                    </ul>
+                </p>
+            </div>
+            
+            <div class="certification-card">
+                <h4>🎰 RCG/RSG - Responsible Gambling Services</h4>
+                <p class="price">Cost: $50-100</p>
+                <p><strong>Required for:</strong> Casinos, TABs, venues with gaming machines</p>
+                <p><strong>Valid in:</strong> State-specific</p>
+                <p><strong>Duration:</strong> 3-6 hours online</p>
+                <p><strong>Note:</strong> Often bundled with RSA for discounts</p>
+            </div>
+            
+            <div class="certification-card">
+                <h4>🔨 White Card - Construction Induction</h4>
+                <p class="price">Cost: $40-100</p>
+                <p><strong>Required for:</strong> ALL construction sites (even cleaning)</p>
+                <p><strong>Valid in:</strong> Australia-wide</p>
+                <p><strong>Duration:</strong> 6 hours (online or face-to-face)</p>
+                <p><strong>Includes:</strong> WHS, hazard identification, PPE use</p>
+                <div class="warning">
+                    <strong>⚠️ Beware:</strong> Many scam sites. Use official WorkSafe approved RTOs only.
+                </div>
+            </div>
+            
+            <div class="certification-card">
+                <h4>☕ Barista/Coffee Course</h4>
+                <p class="price">Cost: $60-150</p>
+                <p><strong>Required for:</strong> Not mandatory but highly recommended for café work</p>
+                <p><strong>Duration:</strong> 3-5 hours hands-on training</p>
+                <p><strong>Includes:</strong> Espresso making, milk texturing, latte art basics</p>
+            </div>
+            
+            <div class="certification-card">
+                <h4>🍕 Food Safety Certificate</h4>
+                <p class="price">Cost: $15-50</p>
+                <p><strong>Required for:</strong> Some food handling positions</p>
+                <p><strong>Valid in:</strong> Australia-wide</p>
+                <p><strong>Duration:</strong> 1-2 hours online</p>
+                <p><strong>Topics:</strong> Temperature control, hygiene, contamination prevention</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💼 Employment Types Explained</h2>
+            
+            <div class="job-type-grid">
+                <div class="job-card">
+                    <h4>Casual</h4>
+                    <p><strong>Pay:</strong> Base rate + 25% loading</p>
+                    <p><strong>Hours:</strong> Variable, no guarantee</p>
+                    <p><strong>Leave:</strong> No paid leave</p>
+                    <p><strong>Notice:</strong> 1 hour minimum</p>
+                </div>
+                
+                <div class="job-card">
+                    <h4>Part-Time</h4>
+                    <p><strong>Pay:</strong> Base rate</p>
+                    <p><strong>Hours:</strong> Regular, guaranteed</p>
+                    <p><strong>Leave:</strong> Paid annual/sick leave</p>
+                    <p><strong>Notice:</strong> 1-4 weeks</p>
+                </div>
+                
+                <div class="job-card">
+                    <h4>Full-Time</h4>
+                    <p><strong>Pay:</strong> Base rate or salary</p>
+                    <p><strong>Hours:</strong> 38 hours/week</p>
+                    <p><strong>Leave:</strong> All leave entitlements</p>
+                    <p><strong>Notice:</strong> 1-4 weeks</p>
+                </div>
+                
+                <div class="job-card">
+                    <h4>Contract/ABN</h4>
+                    <p><strong>Pay:</strong> Negotiated rate</p>
+                    <p><strong>Hours:</strong> As per contract</p>
+                    <p><strong>Leave:</strong> None</p>
+                    <p><strong>Tax:</strong> You manage</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Workplace Rights Checklist</h2>
+            
+            <div class="checklist">
+                <h3>Your Employer MUST:</h3>
+                <ul>
+                    <li>Pay at least minimum wage</li>
+                    <li>Provide pay slips within 1 day of payment</li>
+                    <li>Pay superannuation (11% on top of wages)</li>
+                    <li>Provide a safe workplace</li>
+                    <li>Not discriminate based on nationality</li>
+                    <li>Give proper breaks (30 min per 5 hours)</li>
+                    <li>Pay on time (at least fortnightly)</li>
+                    <li>Keep proper records</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Your Employer CANNOT:</h3>
+                <ul style="list-style: none;">
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #dc3545;">✗</span>
+                        Keep your passport or documents
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #dc3545;">✗</span>
+                        Force you to live in specific accommodation
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #dc3545;">✗</span>
+                        Charge you for getting the job
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #dc3545;">✗</span>
+                        Pay below minimum wage
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #dc3545;">✗</span>
+                        Threaten visa cancellation
+                    </li>
+                    <li style="padding-left: 2rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #dc3545;">✗</span>
+                        Make illegal deductions
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🆘 Getting Help</h2>
+            
+            <h3>Fair Work Ombudsman</h3>
+            <ul>
+                <li><strong>Phone:</strong> 13 13 94</li>
+                <li><strong>Website:</strong> fairwork.gov.au</li>
+                <li><strong>Services:</strong> Free advice, investigate underpayment</li>
+                <li><strong>Anonymous tip line:</strong> Available online</li>
+            </ul>
+            
+            <h3>Common Scams to Avoid</h3>
+            <div class="warning">
+                <strong>🚫 RED FLAGS:</strong>
+                <ul>
+                    <li>Jobs requiring upfront payment</li>
+                    <li>Promises of visa sponsorship for money</li>
+                    <li>Cash only, no payslips</li>
+                    <li>Working without proper ABN setup</li>
+                    <li>Accommodation tied to employment</li>
+                    <li>"Training wages" below minimum</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💡 Pro Tips</h2>
+            
+            <div class="tip">
+                <strong>Resume Tips:</strong>
+                <ul>
+                    <li>Use Australian format (2 pages max)</li>
+                    <li>Include Australian phone number</li>
+                    <li>List any Australian certifications first</li>
+                    <li>Use Australian English spelling</li>
+                    <li>Include visa status and work rights</li>
+                </ul>
+            </div>
+            
+            <div class="tip">
+                <strong>Interview Success:</strong>
+                <ul>
+                    <li>Arrive 10 minutes early</li>
+                    <li>Bring printed resume and certifications</li>
+                    <li>Know your availability clearly</li>
+                    <li>Ask about pay and roster upfront</li>
+                    <li>Get everything in writing</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>

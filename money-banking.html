@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Money & Banking Guide - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 {
+            color: #1565c0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bank-comparison {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .bank-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        .bank-table th,
+        .bank-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .bank-table th {
+            background: #f5f5f5;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        
+        .bank-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .fee-card {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .fee-card h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .money-tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .transfer-option {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .transfer-option h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .cost-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        
+        .cost-card h4 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-card .amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+            margin: 0.5rem 0;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            color: #1976d2;
+            font-size: 1.2rem;
+        }
+        
+        .checklist li.done:before {
+            content: "☑";
+            color: #28a745;
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .app-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .app-card h5 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 600px) {
+            .bank-comparison {
+                font-size: 0.9rem;
+            }
+            
+            .cost-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>Money & Banking Guide</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section">
+            <h2>💳 Opening an Australian Bank Account</h2>
+            
+            <div class="money-tip">
+                <strong>💡 Pro Tip:</strong> Open your account online BEFORE arriving in Australia. You have 6 weeks after arrival to verify your ID in person.
+            </div>
+            
+            <h3>Big 4 Banks Comparison</h3>
+            <div class="bank-comparison">
+                <table class="bank-table">
+                    <thead>
+                        <tr>
+                            <th>Bank</th>
+                            <th>Monthly Fee</th>
+                            <th>Fee Waiver</th>
+                            <th>ATMs</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Commonwealth (CBA)</strong></td>
+                            <td>$4</td>
+                            <td>Under 25 or deposit $2000/month</td>
+                            <td>Most ATMs</td>
+                            <td>First-timers, widespread</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Westpac</strong></td>
+                            <td>$5</td>
+                            <td>Under 30 or 5 transactions</td>
+                            <td>Many ATMs</td>
+                            <td>Young travelers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ANZ</strong></td>
+                            <td>$5</td>
+                            <td>Under 25 or deposit $2000/month</td>
+                            <td>Good network</td>
+                            <td>Asia-Pacific travel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NAB</strong></td>
+                            <td>$0</td>
+                            <td>Always free</td>
+                            <td>Good network</td>
+                            <td>Fee avoiders</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Digital Banks (No Branches)</h3>
+            <ul>
+                <li><strong>ING:</strong> No fees, rebate on ATM fees worldwide</li>
+                <li><strong>Up Bank:</strong> Great app, no fees, instant notifications</li>
+                <li><strong>86 400:</strong> No fees, good savings rates</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Account Opening Process</h2>
+            
+            <div class="checklist">
+                <h3>Step 1: Online Application (Before Arrival)</h3>
+                <ul>
+                    <li>Choose bank and account type</li>
+                    <li>Complete online form with passport details</li>
+                    <li>Provide Australian address (can be hostel)</li>
+                    <li>Receive customer number</li>
+                    <li>Note your temporary password</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Step 2: In-Branch Verification (After Arrival)</h3>
+                <ul>
+                    <li>Bring passport and arrival stamp</li>
+                    <li>Provide Australian phone number</li>
+                    <li>Verify address (hostel booking works)</li>
+                    <li>Activate debit card (arrives in 5-7 days)</li>
+                    <li>Set up mobile banking</li>
+                </ul>
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Important:</strong> You MUST visit a branch within 6 weeks of arrival or your account may be closed.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💸 Understanding Australian Money</h2>
+            
+            <h3>Currency Basics</h3>
+            <ul>
+                <li><strong>Currency:</strong> Australian Dollar (AUD)</li>
+                <li><strong>Symbol:</strong> $ or A$ (to distinguish from USD)</li>
+                <li><strong>Coins:</strong> 5c, 10c, 20c, 50c, $1, $2</li>
+                <li><strong>Notes:</strong> $5, $10, $20, $50, $100</li>
+                <li><strong>No pennies:</strong> Prices rounded to nearest 5c</li>
+            </ul>
+            
+            <h3>Payment Methods</h3>
+            <div class="cost-comparison">
+                <div class="cost-card">
+                    <h4>Card Payments</h4>
+                    <p>Tap & go everywhere</p>
+                    <p><small>$100 limit per tap</small></p>
+                </div>
+                <div class="cost-card">
+                    <h4>Cash</h4>
+                    <p>Rarely needed</p>
+                    <p><small>Some markets only</small></p>
+                </div>
+                <div class="cost-card">
+                    <h4>PayID</h4>
+                    <p>Instant transfers</p>
+                    <p><small>Using phone/email</small></p>
+                </div>
+                <div class="cost-card">
+                    <h4>BPAY</h4>
+                    <p>Bill payments</p>
+                    <p><small>Rent, utilities</small></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🌏 International Money Transfers</h2>
+            
+            <div class="transfer-option">
+                <h4>Wise (Recommended)</h4>
+                <p><strong>Fee:</strong> 0.5-1% of amount</p>
+                <p><strong>Speed:</strong> 1-2 days</p>
+                <p><strong>Pros:</strong> Best exchange rates, transparent fees</p>
+                <p><strong>Cons:</strong> Need to set up account</p>
+            </div>
+            
+            <div class="transfer-option">
+                <h4>Bank Wire Transfer</h4>
+                <p><strong>Fee:</strong> $20-30 + poor exchange rate</p>
+                <p><strong>Speed:</strong> 3-5 days</p>
+                <p><strong>Pros:</strong> Direct from bank</p>
+                <p><strong>Cons:</strong> Expensive, slow</p>
+            </div>
+            
+            <div class="transfer-option">
+                <h4>PayPal</h4>
+                <p><strong>Fee:</strong> 3-4% + exchange rate markup</p>
+                <p><strong>Speed:</strong> Instant to 3 days</p>
+                <p><strong>Pros:</strong> Widely accepted</p>
+                <p><strong>Cons:</strong> High fees</p>
+            </div>
+            
+            <div class="transfer-option">
+                <h4>Western Union</h4>
+                <p><strong>Fee:</strong> $5-25 depending on amount</p>
+                <p><strong>Speed:</strong> Minutes to 1 day</p>
+                <p><strong>Pros:</strong> Cash pickup available</p>
+                <p><strong>Cons:</strong> Poor rates for online transfers</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💰 Budgeting in Australia</h2>
+            
+            <h3>Typical Weekly Costs (Budget Backpacker)</h3>
+            <table class="bank-table">
+                <thead>
+                    <tr>
+                        <th>Expense</th>
+                        <th>Low</th>
+                        <th>Average</th>
+                        <th>High</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Accommodation (hostel)</td>
+                        <td>$175</td>
+                        <td>$245</td>
+                        <td>$350+</td>
+                    </tr>
+                    <tr>
+                        <td>Food (self-catering)</td>
+                        <td>$60</td>
+                        <td>$100</td>
+                        <td>$150+</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td>$20</td>
+                        <td>$40</td>
+                        <td>$60+</td>
+                    </tr>
+                    <tr>
+                        <td>Entertainment</td>
+                        <td>$30</td>
+                        <td>$80</td>
+                        <td>$150+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total per week</strong></td>
+                        <td><strong>$285</strong></td>
+                        <td><strong>$465</strong></td>
+                        <td><strong>$710+</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="money-tip">
+                <strong>💡 Money-Saving Tips:</strong>
+                <ul>
+                    <li>Shop at ALDI or Woolworths/Coles (check weekly specials)</li>
+                    <li>Buy home brand products</li>
+                    <li>Cook in hostels instead of eating out</li>
+                    <li>Look for happy hour specials (4-6pm)</li>
+                    <li>Use public transport with weekly/monthly passes</li>
+                    <li>Join supermarket rewards programs immediately</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏧 ATMs and Fees</h2>
+            
+            <h3>ATM Networks</h3>
+            <ul>
+                <li><strong>Your bank's ATMs:</strong> Always free</li>
+                <li><strong>Other bank ATMs:</strong> $2-3 fee</li>
+                <li><strong>Independent ATMs:</strong> $2.50-5 fee (avoid!)</li>
+                <li><strong>Cashout at shops:</strong> Free with purchase</li>
+            </ul>
+            
+            <div class="fee-card">
+                <h4>Foreign Card Fees</h4>
+                <ul>
+                    <li>ATM withdrawal: $5-10 AUD + your bank's fee</li>
+                    <li>Currency conversion: 3-5% markup</li>
+                    <li>Balance inquiry: $2-4</li>
+                </ul>
+                <p><strong>Total cost:</strong> Can be $15-20 per withdrawal!</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📱 Essential Money Apps</h2>
+            
+            <div class="app-grid">
+                <div class="app-card">
+                    <h5>Banking</h5>
+                    <p>Your bank's app</p>
+                    <p>Wise</p>
+                    <p>PayPal</p>
+                </div>
+                <div class="app-card">
+                    <h5>Budgeting</h5>
+                    <p>Pocketbook</p>
+                    <p>MoneyBrilliant</p>
+                    <p>Splitwise</p>
+                </div>
+                <div class="app-card">
+                    <h5>Savings</h5>
+                    <p>ShopBack</p>
+                    <p>Honey</p>
+                    <p>Flybuys</p>
+                </div>
+                <div class="app-card">
+                    <h5>Investing</h5>
+                    <p>Spaceship</p>
+                    <p>Raiz</p>
+                    <p>CommSec</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚨 Scams and Security</h2>
+            
+            <div class="warning">
+                <strong>⚠️ Common Scams Targeting Backpackers:</strong>
+                <ul>
+                    <li><strong>Job payment scams:</strong> "Accidental" overpayment asking for refund</li>
+                    <li><strong>Rental deposit scams:</strong> Fake listings requiring upfront payment</li>
+                    <li><strong>Tax refund scams:</strong> Emails claiming you have ATO refund</li>
+                    <li><strong>Bank impersonation:</strong> Calls asking for login details</li>
+                    <li><strong>PayID scams:</strong> Fake payment confirmation screenshots</li>
+                </ul>
+            </div>
+            
+            <h3>Protect Yourself</h3>
+            <ul>
+                <li>Never share your banking passwords or PINs</li>
+                <li>Banks will NEVER ask for your password</li>
+                <li>Verify PayID payments in YOUR banking app</li>
+                <li>Use unique passwords for each account</li>
+                <li>Enable two-factor authentication</li>
+                <li>Check ATMs for skimming devices</li>
+                <li>Cover PIN when entering</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>💸 Superannuation (Retirement Savings)</h2>
+            
+            <h3>What You Need to Know</h3>
+            <ul>
+                <li>Employers must pay 11% on top of your wages</li>
+                <li>Goes into super fund (you choose or they assign)</li>
+                <li>Can claim back when leaving Australia (DASP)</li>
+                <li>35% tax on withdrawal for working holiday makers</li>
+            </ul>
+            
+            <h3>Recommended Super Funds</h3>
+            <ul>
+                <li><strong>Hostplus:</strong> Low fees, good returns</li>
+                <li><strong>Australian Super:</strong> Largest fund, reliable</li>
+                <li><strong>REST:</strong> Good for retail/hospitality workers</li>
+            </ul>
+            
+            <div class="money-tip">
+                <strong>💡 Important:</strong> Keep all super fund details! You'll need them to claim your money when leaving Australia. Average claim is $2,000-3,000.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Tax and Financial Records</h2>
+            
+            <h3>Keep Records Of</h3>
+            <div class="checklist">
+                <ul>
+                    <li>All payslips (digital or paper)</li>
+                    <li>Bank statements</li>
+                    <li>Rental receipts</li>
+                    <li>Work-related expenses</li>
+                    <li>Super fund statements</li>
+                    <li>Group certificates/payment summaries</li>
+                    <li>ABN invoices (if applicable)</li>
+                </ul>
+            </div>
+            
+            <h3>Tax Rates (2024)</h3>
+            <ul>
+                <li><strong>First $18,200:</strong> 0% (tax-free threshold)</li>
+                <li><strong>$18,201 - $45,000:</strong> 19%</li>
+                <li><strong>$45,001 - $120,000:</strong> 32.5%</li>
+                <li><strong>Working Holiday Makers:</strong> 15% from first dollar</li>
+            </ul>
+        </div>
+    </main>
+    
+    <script>
+        // Make checklist items clickable
+        document.querySelectorAll('.checklist li').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function() {
+                this.classList.toggle('done');
+            });
+        });
+        
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>

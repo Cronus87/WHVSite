@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976d2">
+    <title>Transportation Guide - Working Holiday Helper</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 {
+            color: #1565c0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .transport-card {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .transport-card h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .city-transport {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .city-transport h4 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .fare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .fare-table th,
+        .fare-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .fare-table th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        
+        .tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .car-option {
+            background: #fff3cd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .car-option h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .app-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        
+        .app-card h5 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .cost-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        
+        .cost-card h4 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-card .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+            margin: 0.5rem 0;
+        }
+        
+        @media (max-width: 600px) {
+            .fare-table {
+                font-size: 0.9rem;
+            }
+            
+            .fare-table th,
+            .fare-table td {
+                padding: 0.5rem;
+            }
+            
+            .cost-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="window.location.href='/'">←</button>
+            <h1>Transportation Guide</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section">
+            <h2>🚌 Public Transport by City</h2>
+            
+            <div class="city-transport">
+                <h4>🌉 Sydney - Opal Card</h4>
+                <table class="fare-table">
+                    <thead>
+                        <tr>
+                            <th>Transport</th>
+                            <th>Peak Fare</th>
+                            <th>Off-Peak</th>
+                            <th>Daily Cap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Metro/Train</td>
+                            <td>$3.61-8.86</td>
+                            <td>30% off</td>
+                            <td>$16.80</td>
+                        </tr>
+                        <tr>
+                            <td>Bus</td>
+                            <td>$2.24-4.80</td>
+                            <td>Same</td>
+                            <td>$16.80</td>
+                        </tr>
+                        <tr>
+                            <td>Ferry</td>
+                            <td>$6.12-7.65</td>
+                            <td>30% off</td>
+                            <td>$16.80</td>
+                        </tr>
+                        <tr>
+                            <td>Light Rail</td>
+                            <td>$2.24-3.61</td>
+                            <td>Same</td>
+                            <td>$16.80</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Weekly Cap:</strong> $50 (Mon-Sun)</p>
+                <p><strong>Sunday Cap:</strong> $2.80 all day!</p>
+                <p><strong>App:</strong> Opal Travel</p>
+            </div>
+            
+            <div class="city-transport">
+                <h4>☕ Melbourne - myki</h4>
+                <table class="fare-table">
+                    <thead>
+                        <tr>
+                            <th>Zone</th>
+                            <th>2 Hour</th>
+                            <th>Daily</th>
+                            <th>Weekly</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Zone 1</td>
+                            <td>$4.60</td>
+                            <td>$9.20</td>
+                            <td>$46.00</td>
+                        </tr>
+                        <tr>
+                            <td>Zone 1+2</td>
+                            <td>$4.60</td>
+                            <td>$9.20</td>
+                            <td>$46.00</td>
+                        </tr>
+                        <tr>
+                            <td>Zone 2 only</td>
+                            <td>$3.10</td>
+                            <td>$6.20</td>
+                            <td>$31.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Free Tram Zone:</strong> CBD area is FREE!</p>
+                <p><strong>Weekend Cap:</strong> $6.50/day</p>
+                <p><strong>App:</strong> PTV</p>
+            </div>
+            
+            <div class="city-transport">
+                <h4>☀️ Brisbane - go card</h4>
+                <table class="fare-table">
+                    <thead>
+                        <tr>
+                            <th>Zones</th>
+                            <th>Peak</th>
+                            <th>Off-Peak</th>
+                            <th>9+ trips/week</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 zone</td>
+                            <td>$3.31</td>
+                            <td>$2.65</td>
+                            <td>50% off</td>
+                        </tr>
+                        <tr>
+                            <td>2 zones</td>
+                            <td>$3.95</td>
+                            <td>$3.16</td>
+                            <td>50% off</td>
+                        </tr>
+                        <tr>
+                            <td>3 zones</td>
+                            <td>$4.77</td>
+                            <td>$3.82</td>
+                            <td>50% off</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Off-Peak Hours:</strong> 8:30am-3:30pm, after 7pm, weekends</p>
+                <p><strong>App:</strong> Translink</p>
+            </div>
+            
+            <div class="city-transport">
+                <h4>🏖️ Perth - SmartRider</h4>
+                <p><strong>Zones:</strong> Distance-based from CBD</p>
+                <p><strong>Cash Fare:</strong> 20% more expensive than SmartRider</p>
+                <p><strong>Free Transit Zone:</strong> CAT buses in CBD/Fremantle</p>
+                <p><strong>App:</strong> Transperth</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>✈️ Domestic Flights</h2>
+            
+            <div class="cost-comparison">
+                <div class="cost-card">
+                    <h4>Jetstar</h4>
+                    <p class="price">$49-200</p>
+                    <p>Budget carrier</p>
+                    <p><small>7kg carry-on only</small></p>
+                </div>
+                <div class="cost-card">
+                    <h4>Tigerair</h4>
+                    <p class="price">$45-180</p>
+                    <p>Ultra budget</p>
+                    <p><small>Strict baggage limits</small></p>
+                </div>
+                <div class="cost-card">
+                    <h4>Virgin</h4>
+                    <p class="price">$89-300</p>
+                    <p>Middle ground</p>
+                    <p><small>23kg included</small></p>
+                </div>
+                <div class="cost-card">
+                    <h4>Qantas</h4>
+                    <p class="price">$109-400</p>
+                    <p>Full service</p>
+                    <p><small>Most reliable</small></p>
+                </div>
+            </div>
+            
+            <div class="tip">
+                <strong>💡 Flight Booking Tips:</strong>
+                <ul>
+                    <li>Book Tuesday/Wednesday for best prices</li>
+                    <li>Fly mid-week (Tue-Thu) cheaper</li>
+                    <li>Use incognito mode when searching</li>
+                    <li>Consider nearby airports (AVV vs MEL)</li>
+                    <li>Join airline newsletters for sales</li>
+                    <li>Book 6-8 weeks ahead for best prices</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚗 Car & Van Options</h2>
+            
+            <div class="car-option">
+                <h4>Buying a Car/Van</h4>
+                <p><strong>Cost:</strong> $3,000-10,000 for backpacker vehicle</p>
+                <p><strong>Pros:</strong> Freedom, can sleep in it, resell value</p>
+                <p><strong>Cons:</strong> Registration, insurance, maintenance costs</p>
+                <p><strong>Best for:</strong> 3+ months travel, regional work</p>
+                <div class="warning">
+                    <strong>⚠️ Required Costs:</strong>
+                    <ul>
+                        <li>Registration (rego): $300-800/year by state</li>
+                        <li>CTP Insurance: $400-600/year (mandatory)</li>
+                        <li>Roadworthy certificate: $150-300</li>
+                        <li>Comprehensive insurance: $600-1200/year</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="car-option">
+                <h4>Car Rental</h4>
+                <p><strong>Cost:</strong> $30-60/day (economy)</p>
+                <p><strong>Pros:</strong> No maintenance worry, newer cars</p>
+                <p><strong>Cons:</strong> Expensive long-term, age restrictions</p>
+                <p><strong>Best for:</strong> Short trips, under 25s pay more</p>
+            </div>
+            
+            <div class="car-option">
+                <h4>Campervan Rental</h4>
+                <p><strong>Cost:</strong> $50-150/day</p>
+                <p><strong>Pros:</strong> Accommodation included, fully equipped</p>
+                <p><strong>Cons:</strong> Very expensive, fuel costs high</p>
+                <p><strong>Best for:</strong> 1-4 week road trips</p>
+            </div>
+            
+            <div class="car-option">
+                <h4>Relocation Deals</h4>
+                <p><strong>Cost:</strong> $1-5/day + fuel</p>
+                <p><strong>Pros:</strong> Incredibly cheap</p>
+                <p><strong>Cons:</strong> Strict time limits, specific routes</p>
+                <p><strong>Websites:</strong> Imoova, Transfercar, Coseats</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚌 Long Distance Buses</h2>
+            
+            <div class="transport-card">
+                <h4>Greyhound Australia</h4>
+                <p><strong>Passes:</strong></p>
+                <ul>
+                    <li>Whimit Pass: 90-365 days unlimited travel ($399-699)</li>
+                    <li>Hop-on Hop-off: Set routes, flexible stops</li>
+                </ul>
+                <p><strong>Popular Routes:</strong></p>
+                <ul>
+                    <li>Sydney to Melbourne: $45-95 (12 hours)</li>
+                    <li>Sydney to Brisbane: $65-130 (16 hours)</li>
+                    <li>Cairns to Brisbane: $175-280 (29 hours)</li>
+                </ul>
+            </div>
+            
+            <div class="transport-card">
+                <h4>Premier Motor Service</h4>
+                <p>Often cheaper than Greyhound</p>
+                <p>Less frequent but comfortable</p>
+                <p>Free WiFi on most buses</p>
+            </div>
+            
+            <div class="transport-card">
+                <h4>Backpacker Bus Tours</h4>
+                <ul>
+                    <li><strong>Oz Experience:</strong> Party bus, set routes</li>
+                    <li><strong>AAT Kings:</strong> Guided tours, older crowd</li>
+                    <li><strong>Adventure Tours:</strong> Small groups, off-beaten path</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚂 Train Travel</h2>
+            
+            <div class="transport-card">
+                <h4>The Ghan (Adelaide-Darwin)</h4>
+                <p><strong>Duration:</strong> 54 hours</p>
+                <p><strong>Cost:</strong> $929-3,489</p>
+                <p>Crosses the red centre, bucket list trip</p>
+            </div>
+            
+            <div class="transport-card">
+                <h4>Indian Pacific (Sydney-Perth)</h4>
+                <p><strong>Duration:</strong> 65 hours</p>
+                <p><strong>Cost:</strong> $1,009-3,689</p>
+                <p>Crosses the Nullarbor Plain</p>
+            </div>
+            
+            <div class="transport-card">
+                <h4>XPT/Regional Trains</h4>
+                <p>Sydney to Melbourne: $65-91 (11 hours)</p>
+                <p>Brisbane to Cairns: $89-189 (24 hours)</p>
+                <p>Often overnight options available</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚴 Alternative Transport</h2>
+            
+            <div class="app-grid">
+                <div class="app-card">
+                    <h5>🚗 Rideshare</h5>
+                    <p>Uber, DiDi, Ola</p>
+                    <p>Available in all cities</p>
+                    <p>$10-25 typical ride</p>
+                </div>
+                <div class="app-card">
+                    <h5>🚲 Bike Share</h5>
+                    <p>Lime, Beam, Neuron</p>
+                    <p>$1 unlock + 45¢/min</p>
+                    <p>Good for short trips</p>
+                </div>
+                <div class="app-card">
+                    <h5>🛴 E-Scooters</h5>
+                    <p>Lime, Beam, Neuron</p>
+                    <p>$1 unlock + 45¢/min</p>
+                    <p>Check local laws</p>
+                </div>
+                <div class="app-card">
+                    <h5>🚗 Car Share</h5>
+                    <p>GoGet, Flexicar</p>
+                    <p>$7-15/hour</p>
+                    <p>Fuel included</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📱 Essential Transport Apps</h2>
+            
+            <div class="app-grid">
+                <div class="app-card">
+                    <h5>Navigation</h5>
+                    <p>Google Maps</p>
+                    <p>Maps.me (offline)</p>
+                    <p>Citymapper</p>
+                </div>
+                <div class="app-card">
+                    <h5>Rideshare</h5>
+                    <p>Uber</p>
+                    <p>DiDi</p>
+                    <p>Ola</p>
+                </div>
+                <div class="app-card">
+                    <h5>Public Transport</h5>
+                    <p>TripView (Sydney)</p>
+                    <p>PTV (Melbourne)</p>
+                    <p>MyTranslink (QLD)</p>
+                </div>
+                <div class="app-card">
+                    <h5>Flights</h5>
+                    <p>Skyscanner</p>
+                    <p>Webjet</p>
+                    <p>Google Flights</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚗 Driving in Australia</h2>
+            
+            <h3>Essential Rules</h3>
+            <ul>
+                <li>🚗 Drive on the LEFT side</li>
+                <li>🚨 Give way to the RIGHT (unless signs say otherwise)</li>
+                <li>⛔ Speed limits strictly enforced (heavy fines)</li>
+                <li>📱 Mobile phone use while driving = $500+ fine</li>
+                <li>🍺 Blood alcohol limit: 0.05% (0.00% for some licenses)</li>
+                <li>💺 Seatbelts mandatory for all passengers</li>
+            </ul>
+            
+            <h3>License Requirements</h3>
+            <ul>
+                <li>Can drive on overseas license for 3-6 months (varies by state)</li>
+                <li>Must carry International Driving Permit if not in English</li>
+                <li>Some states require license translation</li>
+                <li>Consider getting local license if staying longer</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>⚠️ Unique Australian Road Rules:</strong>
+                <ul>
+                    <li>Hook turns in Melbourne CBD (turn right from left lane)</li>
+                    <li>School zones: 40km/h during school hours</li>
+                    <li>Must slow to 40km/h passing emergency vehicles</li>
+                    <li>U-turns banned at traffic lights unless signed</li>
+                    <li>Headlights on when wipers required</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💰 Budget Transport Tips</h2>
+            
+            <div class="tip">
+                <strong>Money Savers:</strong>
+                <ul>
+                    <li>Walk/bike for trips under 2km</li>
+                    <li>Use public transport weekly/monthly passes</li>
+                    <li>Share Uber/taxi with other backpackers</li>
+                    <li>Book flights on Tuesday/Wednesday</li>
+                    <li>Use bus instead of train for long distances</li>
+                    <li>Check Facebook for ride shares</li>
+                    <li>Travel overnight to save accommodation</li>
+                    <li>Take advantage of free city buses/trams</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>
