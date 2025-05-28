@@ -13,7 +13,11 @@
       "WebFetch(domain:www.commbank.com.au)",
       "WebFetch(domain:www.workforceaustralia.gov.au)",
       "WebFetch(domain:www.healthdirect.gov.au)",
-      "WebFetch(domain:transportnsw.info)"
+      "WebFetch(domain:transportnsw.info)",
+      "WebFetch(domain:www.seek.com.au)",
+      "WebFetch(domain:www.backpackerjobboard.com.au)",
+      "WebFetch(domain:www.fairwork.gov.au)",
+      "WebFetch(domain:au.indeed.com)"
     ],
     "deny": []
   }
