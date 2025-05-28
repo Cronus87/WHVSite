@@ -1,22 +1,22 @@
 // Service Worker for Working Holiday Helper
 const CACHE_NAME = 'whv-helper-v3';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/visa-guide.html',
-  '/banking.html',
-  '/phone-sim.html',
-  '/tax-tfn.html',
-  '/regional-work.html',
-  '/pre-arrival.html',
-  '/emergency-safety.html',
-  '/work-rights.html',
-  '/accommodation.html',
-  '/money-banking.html',
-  '/transportation.html',
-  '/healthcare.html',
-  '/departure.html'
+  './',
+  './index.html',
+  './manifest.json',
+  './visa-guide.html',
+  './banking.html',
+  './phone-sim.html',
+  './tax-tfn.html',
+  './regional-work.html',
+  './pre-arrival.html',
+  './emergency-safety.html',
+  './work-rights.html',
+  './accommodation.html',
+  './money-banking.html',
+  './transportation.html',
+  './healthcare.html',
+  './departure.html'
 ];
 
 // Install event - cache all static assets
@@ -86,7 +86,7 @@ self.addEventListener('fetch', event => {
       .catch(() => {
         // Offline fallback
         if (event.request.destination === 'document') {
-          return caches.match('/index.html');
+          return caches.match('./index.html');
         }
       })
   );
