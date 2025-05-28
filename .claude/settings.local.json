@@ -17,7 +17,12 @@
       "WebFetch(domain:www.seek.com.au)",
       "WebFetch(domain:www.backpackerjobboard.com.au)",
       "WebFetch(domain:www.fairwork.gov.au)",
-      "WebFetch(domain:au.indeed.com)"
+      "WebFetch(domain:au.indeed.com)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:www.chemistwarehouse.com.au)",
+      "WebFetch(domain:jp.translink.com.au)",
+      "WebFetch(domain:www.pharmacyfinder.com.au)"
     ],
     "deny": []
   }
