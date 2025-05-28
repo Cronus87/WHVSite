@@ -900,22 +900,19 @@
         });
 
         // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 const href = this.getAttribute('href');
-                // Only handle valid anchor links (not just '#')
-                if (href && href.length > 1) {
-                    e.preventDefault();
-                    try {
-                        const target = document.querySelector(href);
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
-                    } catch (error) {
-                        console.error('Invalid selector:', href);
+                try {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }
+                } catch (error) {
+                    console.error('Invalid selector:', href);
                 }
             });
         });
