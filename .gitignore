@@ -1,0 +1,63 @@
+# Working Holiday Helper - GitHub Pages Deployment
+# Only include files needed for the live website
+
+# Original content files (already converted to HTML)
+website_content/
+design_doc.md
+
+# Development and temporary files
+server.log
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js (if used for future development)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Python (if used for future development)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+
+# Other common files to ignore
+*.zip
+*.tar.gz
+*.rar
+
+# Keep these files for GitHub Pages:
+# *.html (all HTML pages)
+# *.css (if any external CSS)
+# *.js (service worker and scripts)
+# *.json (manifest.json)
+# *.png, *.jpg, *.svg (any images)
+# *.ico (favicon if added)
