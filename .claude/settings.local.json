@@ -4,7 +4,16 @@
       "Bash(hugo new:*)",
       "Bash(git init:*)",
       "Bash(git --version)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:immi.homeaffairs.gov.au)",
+      "WebFetch(domain:harvesttrail.gov.au)",
+      "WebFetch(domain:www.ato.gov.au)",
+      "WebFetch(domain:www.servicesaustralia.gov.au)",
+      "WebFetch(domain:www.commbank.com.au)",
+      "WebFetch(domain:www.workforceaustralia.gov.au)",
+      "WebFetch(domain:www.healthdirect.gov.au)",
+      "WebFetch(domain:transportnsw.info)"
     ],
     "deny": []
   }

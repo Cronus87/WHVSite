@@ -5,6 +5,17 @@
 website_content/
 design_doc.md
 
+# Documentation files (internal development use only)
+SITE_DOCUMENTATION.md
+DEVELOPMENT_TRACKER.md
+GOALS_AND_VISION.md
+
+# Development notes and planning
+*.dev.md
+NOTES.md
+TODO.md
+PLANNING.md
+
 # Development and temporary files
 server.log
 *.log
