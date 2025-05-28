@@ -906,11 +906,15 @@
                 // Only handle valid anchor links (not just '#')
                 if (href && href.length > 1) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                    try {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    } catch (error) {
+                        console.error('Invalid selector:', href);
                     }
                 }
             });
