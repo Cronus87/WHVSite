@@ -902,26 +902,23 @@
             });
         });
 
-        // Smooth scroll for anchor links - Fixed version
+        // Simple smooth scroll for internal anchor links only
         document.addEventListener('click', function(e) {
-            // Check if clicked element is an anchor
-            const anchor = e.target.closest('a');
-            if (!anchor) return;
+            // Only process anchor clicks
+            if (e.target.tagName !== 'A') return;
             
-            const href = anchor.getAttribute('href');
-            // Only process if href starts with # and has more than just #
-            if (href && href.startsWith('#') && href.length > 1) {
+            const href = e.target.getAttribute('href');
+            
+            // Skip if no href, external link, or just '#'
+            if (!href || !href.startsWith('#') || href === '#') return;
+            
+            // Try to find the target element
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
                 e.preventDefault();
-                try {
-                    const target = document.getElementById(href.substring(1));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                } catch (error) {
-                    console.error('Smooth scroll error:', error);
-                }
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
 
