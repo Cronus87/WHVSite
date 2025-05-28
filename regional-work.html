@@ -902,22 +902,27 @@
             });
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth scroll for anchor links - Fixed version
+        document.addEventListener('click', function(e) {
+            // Check if clicked element is an anchor
+            const anchor = e.target.closest('a');
+            if (!anchor) return;
+            
+            const href = anchor.getAttribute('href');
+            // Only process if href starts with # and has more than just #
+            if (href && href.startsWith('#') && href.length > 1) {
                 e.preventDefault();
-                const href = this.getAttribute('href');
                 try {
-                    const target = document.querySelector(href);
+                    const target = document.getElementById(href.substring(1));
                     if (target) {
                         target.scrollIntoView({
                             behavior: 'smooth'
                         });
                     }
                 } catch (error) {
-                    console.error('Invalid selector:', href);
+                    console.error('Smooth scroll error:', error);
                 }
-            });
+            }
         });
 
         // Add animation on scroll
