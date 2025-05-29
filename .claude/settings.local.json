@@ -22,7 +22,8 @@
       "Bash(ls:*)",
       "WebFetch(domain:www.chemistwarehouse.com.au)",
       "WebFetch(domain:jp.translink.com.au)",
-      "WebFetch(domain:www.pharmacyfinder.com.au)"
+      "WebFetch(domain:www.pharmacyfinder.com.au)",
+      "Bash(pkill:*)"
     ],
     "deny": []
   }

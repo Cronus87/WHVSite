@@ -1,5 +1,6 @@
 // Service Worker for Working Holiday Helper
-const CACHE_NAME = 'whv-helper-v3';
+const CACHE_NAME = 'whv-helper-v4';
+const BASE_PATH = self.location.pathname.includes('/WHVSite/') ? '/WHVSite' : '';
 const urlsToCache = [
   './',
   './index.html',
